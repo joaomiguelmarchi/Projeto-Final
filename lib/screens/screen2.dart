@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ScreenTwo extends StatefulWidget {
-  const ScreenTwo({Key? key, required BuildContext inheritedTry})
+  const ScreenTwo({Key? key})
       : super(key: key);
 
   @override
@@ -11,6 +11,8 @@ class ScreenTwo extends StatefulWidget {
 class _ScreenTwoState extends State<ScreenTwo> {
   @override
   Widget build(BuildContext context) {
+    // TextEditingController numberController = TextEditingController();
+    // int _counter = int.parse(numberController.text);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -29,41 +31,287 @@ class _ScreenTwoState extends State<ScreenTwo> {
                 width: 3,
               ),
             ),
-            child:Column(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.teal,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  width: 200,
-                  height: 150,
-                   child: ClipRRect(
-                     borderRadius: BorderRadius.circular(10),
-                     child: Image.network(
-                        'https://www.lance.com.br/files/article_main/uploads/2022/05/26/629036ae19f65.jpeg',
-                       fit: BoxFit.cover,
-                     ),
-                   ),
-                ),
-                SizedBox(
-                  height: 70,
-                  width: 70,
-                    child: ElevatedButton(
-                        onPressed:(){
-                          Navigator.pop(context);
-                        },
-                        child: const Text('POP')),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            width: 100,
+                            height: 80,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              color: Colors.white54,
+                              border: Border.all(
+                                color: Colors.black,
+                                width: 3,
+                              ),
+                            ),
+                            child: const Center(
+                              child: Text(
+                                'Faixa',
+                                style: TextStyle(fontSize: 29),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            width: 100,
+                            height: 100,
+                            color: Colors.black26,
+                            child: const Center(
+                              child: Text(
+                                'Faixa 0',
+                                style: TextStyle(
+                                  fontSize: 25,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            width: 100,
+                            height: 100,
+                            color: Colors.black26,
+                            child: const Center(
+                              child: Text(
+                                'Faixa 1',
+                                style: TextStyle(
+                                  fontSize: 25,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            width: 100,
+                            height: 100,
+                            color: Colors.black26,
+                            child: const Center(
+                              child: Text(
+                                'Faixa 2',
+                                style: TextStyle(
+                                  fontSize: 25,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            width: 100,
+                            height: 100,
+                            color: Colors.black26,
+                            child: const Center(
+                              child: Text(
+                                'Faixa 3',
+                                style: TextStyle(
+                                  fontSize: 25,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            width: 100,
+                            height: 80,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              color: Colors.white54,
+                              border: Border.all(
+                                color: Colors.black,
+                                width: 3,
+                              ),
+                            ),
+                            child: const Center(
+                              child: Text(
+                                'Intervalo',
+                                style: TextStyle(fontSize: 24),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            width: 100,
+                            height: 100,
+                            color: Colors.black26,
+                            child: const Center(
+                              child: Text(
+                                'Menos de 1h',
+                                style: TextStyle(
+                                  fontSize: 17,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            width: 100,
+                            height: 100,
+                            color: Colors.black26,
+                            child: const Center(
+                              child: Text(
+                                'Entre 1h e 4h',
+                                style: TextStyle(
+                                  fontSize: 17,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            width: 100,
+                            height: 100,
+                            color: Colors.black26,
+                            child: const Center(
+                              child: Text(
+                                'Entre 4h e 8h',
+                                style: TextStyle(
+                                  fontSize: 17,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            width: 100,
+                            height: 100,
+                            color: Colors.black26, child: const Center(
+                            child: Text(
+                              'Mais de 8h',
+                              style: TextStyle(
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            width: 100,
+                            height: 80,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              color: Colors.white54,
+                              border: Border.all(
+                                color: Colors.black,
+                                width: 3,
+                              ),
+                            ),
+                            child: const Center(
+                              child: Text(
+                                'Preço',
+                                style: TextStyle(fontSize: 29),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            width: 100,
+                            height: 100,
+                            color: Colors.black26,
+                            child: const Center(
+                              child: Text(
+                                'RS 4,00',
+                                style: TextStyle(
+                                  fontSize: 23,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            width: 100,
+                            height: 100,
+                            color: Colors.black26,
+                            child: const Center(
+                              child: Text(
+                                'RS 3,75',
+                                style: TextStyle(
+                                  fontSize: 23,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            width: 100,
+                            height: 100,
+                            color: Colors.black26,
+                            child: const Center(
+                              child: Text(
+                                'RS 3,50',
+                                style: TextStyle(
+                                  fontSize: 23,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            width: 100,
+                            height: 100,
+                            color: Colors.black26,
+                            child: const Center(
+                              child: Text(
+                                'RS 8,00',
+                                style: TextStyle(
+                                  fontSize: 23,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ],
             ),
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.add),
       ),
     );
   }

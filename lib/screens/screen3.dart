@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto_final/screens/screen3.1.dart';
 
 class ScreenThree extends StatefulWidget {
-  const ScreenThree({Key? key, required BuildContext inheritedTry})
+  const ScreenThree({Key? key})
       : super(key: key);
 
   @override
@@ -32,55 +32,18 @@ class _ScreenThreeState extends State<ScreenThree> {
             ),
             child:Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.teal,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  width: 200,
-                  height: 150,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Image.network(
-                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQCjloS50idBb-NzjVQ2kfpy8QtVo5mEKl4g&usqp=CAU',
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 70,
-                  width: 70,
-                  child: ElevatedButton(
-                      onPressed:(){
-                        Navigator.pop(context);
-                      },
-                      child: const Text('POP')),
-                ),
-                SizedBox(
-                  height: 70,
-                  width: 90,
-                  child: ElevatedButton(
-                      onPressed:(){
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context3e1) => ScreenThreeEOne(
-                              inheritedTry : context3e1,
-                            ),
-                          ),
-                        );
-                      },
-                      child: const Text('Registro')),
-                ),
+              children: const [
+                  Icon(Icons.list_alt_outlined, size: 90,),
               ],
             ),
           ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.add),
+        onPressed: () {
+          Navigator.pushNamed(context, 'screen3.1');
+        },
+        child: const Icon(Icons.history),
       ),
     );
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ScreenThreeEOne extends StatefulWidget {
-  const ScreenThreeEOne({Key? key, required BuildContext inheritedTry})
+  const ScreenThreeEOne({Key? key})
       : super(key: key);
 
   @override
@@ -31,39 +31,12 @@ class _ScreenThreeEOneState extends State<ScreenThreeEOne> {
             ),
             child:Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.teal,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  width: 200,
-                  height: 150,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Image.network(
-                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTyqzl26JHOG-a40Zv_7b7owCD80BwUKsrKg&usqp=CAU',
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 70,
-                  width: 70,
-                  child: ElevatedButton(
-                      onPressed:(){
-                        Navigator.pop(context);
-                      },
-                      child: const Text('POP')),
-                ),
+              children: const [
+                Icon(Icons.history, size: 90,),
               ],
             ),
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.add),
       ),
     );
   }

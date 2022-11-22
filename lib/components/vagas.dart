@@ -28,7 +28,6 @@ class Vaga extends StatelessWidget {
             fontSize: 25,
           ),
         ),
-        //(isFull) ? Icon(Icons.warning_amber) : Icon(Icons.add),
           (isFull) ? SizedBox(
             height: 50,
             width: 55,
@@ -42,8 +41,7 @@ class Vaga extends StatelessWidget {
                 width: 55,
                 child: ElevatedButton(
                   onPressed: () {},
-                  child: Icon(Icons.add
-                  ),
+                  child: Icon(Icons.add),
             ),
           ),
           ],
