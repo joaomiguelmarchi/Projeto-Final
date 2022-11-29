@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_final/screens/screen3.1.dart';
 
 class ScreenThree extends StatefulWidget {
   const ScreenThree({Key? key})

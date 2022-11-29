@@ -1,47 +1,41 @@
-
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:projeto_final/components/vagas.dart';
+import 'package:projeto_final/components/cars.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
 const _num = "_num";
 class ProviderTry extends ChangeNotifier{
+    List<Vaga> listateste = [];
+    List<Cars> listacars = [];
 
-  ProviderTry(){
-    SharedPreferences.getInstance().then((value){
-      _sharedPreferences = value;
-      reload();
-    });
+  ProviderTry() {
+  _init();
   }
 
-  SharedPreferences? _sharedPreferences;
+  int _numberOfLots = 0;
+  int get numberOfLots => _numberOfLots;
 
-  int _numero =0;
-
-  int get numeros => _numero;
-
-  void reload(){
-    _numero = _sharedPreferences?.getInt(_num)?? 0;
-    notifyListeners();
+  Future<void> _init() async {
+  final prefs = await SharedPreferences.getInstance();
+  _numberOfLots = prefs.getInt(_num) ?? 0;
+  notifyListeners();
   }
 
-  void save(){
-    print("SAVE VALUE $_num");
-    _sharedPreferences?.setInt(_num, _numero);
+  Future<void> changeNumberOfLots(controller) async {
+  final prefs = await SharedPreferences.getInstance();
+  final text = controller.toString();
+  final number = int.parse(text);
+  _numberOfLots = number;
+  await prefs.setInt(_num, _numberOfLots);
+
+  for (int i = 0; i < number; i++) {
+      listateste.add(Vaga(name: "Vaga ${i + 1}", isFull: true,));
+      }
+  notifyListeners();
   }
-
-  void receber(int i){
-    teste = i;
-    notifyListeners();
-  }
-  int teste =0;
-
-  List<Vaga> listateste = [];
-
-  void createlist(){
-    for (int i=0;i<teste;i++){
-      listateste.add(Vaga(name: "Vaga ${i+1}",isFull: false,));
+  addCar(String owner, String car, File? carPhoto){
+    listacars.add(Cars(ownername: owner, carId: car, photo: carPhoto));
     }
-    notifyListeners();
   }
-}
