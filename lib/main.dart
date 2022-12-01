@@ -9,6 +9,7 @@ import 'package:projeto_final/screens/screen2.dart';
 import 'package:projeto_final/screens/screen3.1.dart';
 import 'package:projeto_final/screens/screen3.dart';
 import 'package:provider/provider.dart';
+import 'package:projeto_final/screens/vagas_screen.dart';
 
 void main() {
   runApp(
@@ -45,6 +46,7 @@ class _MyAppState extends State<MyApp> {
        'screen3' : (context) => const ScreenThree(),
        'screen3.1' : (context) => const ScreenThreeEOne(),
        'carscreen' : (context) => const CarScreen(),
+       'vagasrest' : (context) => const  VagasRestantesScreen(),
      },
     );
   }

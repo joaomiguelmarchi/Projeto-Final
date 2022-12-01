@@ -25,15 +25,15 @@ class _ScreenOneEOneState extends State<ScreenOneEOne> {
         ),
         body: Center(
           child: Container(
-            height: 750,
-            width: 375,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-                color: Colors.black12,
-                border: Border.all(
-                color: Colors.black,
-                width: 3,
-                ),
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Colors.cyan,
+                  Colors.yellow,
+                ],
+              ),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -75,12 +75,14 @@ class _ScreenOneEOneState extends State<ScreenOneEOne> {
                   height: 50,
                   child: ElevatedButton(
                     onPressed: (){
-                      if(_formKey.currentState!.validate()){
-                        Provider.of<ProviderTry>(
-                           context, listen: false).changeNumberOfLots(
-                            numberController.text);
-                        Navigator.pop(context);
-                      }
+                      setState((){
+                        if(_formKey.currentState!.validate()){
+                          Provider.of<ProviderTry>(
+                              context, listen: false).changeNumberOfLots(
+                              numberController.text);
+                          Navigator.pop(context);
+                        }
+                      });
                     } ,
                     child: const Text(
                       'SAVE'

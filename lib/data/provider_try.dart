@@ -9,7 +9,12 @@ const _num = "_num";
 class ProviderTry extends ChangeNotifier{
     List<Vaga> listateste = [];
     List<Cars> listacars = [];
+    int index = 0;
 
+    aumentar(){
+      index++;
+      notifyListeners();
+    }
   ProviderTry() {
   _init();
   }
@@ -35,7 +40,11 @@ class ProviderTry extends ChangeNotifier{
       }
   notifyListeners();
   }
-  addCar(String owner, String car, File? carPhoto){
-    listacars.add(Cars(ownername: owner, carId: car, photo: carPhoto));
+
+    removeCar(int index){
+      listacars.removeAt(index);
+    }
+  addCar(String owner, String car, File? carPhoto, int indexx){
+    listacars.add(Cars(ownername: owner, carId: car, photo: carPhoto, index: indexx,));
     }
   }

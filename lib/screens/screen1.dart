@@ -23,13 +23,25 @@ class _ScreenOneState extends State<ScreenOne> {
         centerTitle: true,
         title: const Text('N° de Vagas'),
       ),
-       body: ListView(
-         padding: const EdgeInsets.all(8),
-            children:[
-             (a.isEmpty)?
-              const EmptyScreen()
-             : const ListScreen(),
-           ],
+       body: Container(
+         decoration: const BoxDecoration(
+           gradient: LinearGradient(
+             begin: Alignment.topLeft,
+             end: Alignment.bottomRight,
+             colors: [
+               Colors.cyan,
+               Colors.yellow,
+             ],
+           ),
+         ),
+         child: ListView(
+           padding: const EdgeInsets.all(8),
+              children:[
+               (a.isEmpty)?
+                const EmptyScreen()
+               : const ListScreen(),
+             ],
+         ),
        ),
     );
   }

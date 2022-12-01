@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_final/data/provider_try.dart';
+import 'package:provider/provider.dart';
 
 class InitialScreen extends StatefulWidget {
   const InitialScreen({Key? key}) : super(key: key);
@@ -11,26 +13,25 @@ class _InitialScreenState extends State<InitialScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text('Dia 7 de 35'),
-      ),
       body: Center(
-        child: SingleChildScrollView(
-            child: Container(
-          height: 750,
-          width: 375,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: Colors.black12,
-            border: Border.all(
-              color: Colors.black,
-              width: 3,
-            ),
+        child: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Colors.cyan,
+                  Colors.yellow,
+                ]),
           ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
+              SizedBox(
+                height: 400,
+                width: 400,
+                child: Image.asset('assets/images/logo.png',),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -129,9 +130,30 @@ class _InitialScreenState extends State<InitialScreen> {
                   ),
                 ],
               ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  height: 70,
+                  width: 160,
+                  decoration: BoxDecoration(
+                    color: Colors.lightBlueAccent,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, 'vagasrest');
+                    },
+                    child: const Text(
+                      'Vagas Restantes',
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
-        )
         ),
       ),
     );
