@@ -120,7 +120,7 @@ class _InitialScreenState extends State<InitialScreen> {
                           Navigator.pushNamed(context, 'carscreen');
                         },
                         child: const Text(
-                          'Carros',
+                          'Veículos',
                           style: TextStyle(
                             fontSize: 20,
                           ),

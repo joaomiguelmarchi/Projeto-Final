@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:projeto_final/components/vagas.dart';
 import 'package:projeto_final/components/cars.dart';
+import 'package:projeto_final/components/records.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
@@ -9,12 +10,10 @@ const _num = "_num";
 class ProviderTry extends ChangeNotifier{
     List<Vaga> listateste = [];
     List<Cars> listacars = [];
+    List<Records> listrecords = [];
     int index = 0;
 
-    aumentar(){
-      index++;
-      notifyListeners();
-    }
+
   ProviderTry() {
   _init();
   }
@@ -30,8 +29,7 @@ class ProviderTry extends ChangeNotifier{
 
   Future<void> changeNumberOfLots(controller) async {
   final prefs = await SharedPreferences.getInstance();
-  final text = controller.toString();
-  final number = int.parse(text);
+  final number = int.parse(controller.toString());
   _numberOfLots = number;
   await prefs.setInt(_num, _numberOfLots);
 
@@ -43,8 +41,27 @@ class ProviderTry extends ChangeNotifier{
 
     removeCar(int index){
       listacars.removeAt(index);
+      notifyListeners();
     }
-  addCar(String owner, String car, File? carPhoto, int indexx){
-    listacars.add(Cars(ownername: owner, carId: car, photo: carPhoto, index: indexx,));
+    aumentar(){
+      index++;
+      notifyListeners();
+    }
+    diminuir(){
+      index--;
+      notifyListeners();
+    }
+    reiniciar(){
+      index = 0;
+      notifyListeners();
+    }
+  addCar(String owner, String car, File? carPhoto, int indexx, String startDate){
+    listacars.add(Cars(ownername: owner, carId: car, photo: carPhoto, index: indexx, start: startDate,));
+    notifyListeners();
+    }
+
+    addRegister(String name, plate, startDate, endDate, File photo, int index){
+    listrecords.add(Records(name: name, plate: plate, startDate: startDate,endDate: endDate, photography: photo, index: index,));
+    notifyListeners();
     }
   }

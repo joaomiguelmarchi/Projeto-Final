@@ -3,6 +3,7 @@ import 'package:projeto_final/data/provider_try.dart';
 import 'package:projeto_final/screens/car_screen.dart';
 import 'package:projeto_final/screens/enter_screen.dart';
 import 'package:projeto_final/screens/initial_screen.dart';
+import 'package:projeto_final/screens/records_screen.dart';
 import 'package:projeto_final/screens/screen1.1.dart';
 import 'package:projeto_final/screens/screen1.dart';
 import 'package:projeto_final/screens/screen2.dart';
@@ -47,6 +48,7 @@ class _MyAppState extends State<MyApp> {
        'screen3.1' : (context) => const ScreenThreeEOne(),
        'carscreen' : (context) => const CarScreen(),
        'vagasrest' : (context) => const  VagasRestantesScreen(),
+       'recordsscreen' : (context) => const  RecordsScreen(),
      },
     );
   }

@@ -18,6 +18,7 @@ class _CarScreenState extends State<CarScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: const Text('Titulo'),
       ),
       body: Container(
@@ -34,6 +35,12 @@ class _CarScreenState extends State<CarScreen> {
         child: ListView(
           children: Provider.of<ProviderTry>(context, listen: false).listacars,
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          Navigator.pushNamed(context, 'recordsscreen');
+        },
+        child: const Icon(Icons.library_books),
       ),
     );
   }
