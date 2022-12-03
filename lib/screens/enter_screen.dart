@@ -43,6 +43,10 @@ class _EnterScreenState extends State<EnterScreen> {
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                const SizedBox(
+                  width: 50,
+                  height: 50,
+                ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
@@ -62,6 +66,10 @@ class _EnterScreenState extends State<EnterScreen> {
                       filled: true,
                     ),
                   ),
+                ),
+                const SizedBox(
+                  width: 50,
+                  height: 50,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -83,6 +91,10 @@ class _EnterScreenState extends State<EnterScreen> {
                     ),
                   ),
                 ),
+                const SizedBox(
+                  width: 50,
+                  height: 50,
+                ),
                 (image == null)
                     ? Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -90,30 +102,37 @@ class _EnterScreenState extends State<EnterScreen> {
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: SizedBox(
-                                height: 100,
-                                width: 100,
-                                child: ElevatedButton(
-                                  onPressed: () {
-                                    pegarImagemCamera();
-                                  },
-                                  child: const Icon(
-                                    Icons.photo_camera_outlined,),
+                              height: 100,
+                              width: 100,
+                              child: IconButton(
+                                onPressed: () {
+                                  pegarImagemCamera();
+                                },
+                                icon: const Icon(
+                                  Icons.photo_camera_outlined,
+                                  size: 60,
                                 ),
+                              ),
                             ),
+                          ),
+                          const SizedBox(
+                            width: 100,
+                            height: 100,
                           ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: SizedBox(
-                                height: 100,
-                                width: 100,
-                                child: ElevatedButton(
-                                  onPressed: () {
-                                    pegarImagemGaleria();
-                                  },
-                                  child: const Icon(
-                                    Icons.add_photo_alternate_outlined,
-                                  ),
+                              height: 100,
+                              width: 100,
+                              child: IconButton(
+                                onPressed: () {
+                                  pegarImagemGaleria();
+                                },
+                                icon: const Icon(
+                                  Icons.add_photo_alternate_outlined,
+                                  size: 60,
                                 ),
+                              ),
                             ),
                           )
                         ],
@@ -121,46 +140,52 @@ class _EnterScreenState extends State<EnterScreen> {
                     : Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: SizedBox(
-                            width: 200,
-                            height: 250,
-                            child: Image.file(
-                              image!)
-                        ),
+                            width: 200, height: 250, child: Image.file(image!)),
                       ),
-                SizedBox(
-                  width: 80,
+                const SizedBox(
+                  width: 50,
                   height: 50,
-                  child: ElevatedButton(
-                    onPressed: () {
-
-                      int index1 =
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    width: 80,
+                    height: 50,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        int index1 =
+                            Provider.of<ProviderTry>(context, listen: false)
+                                .index;
+                        if (_formKey.currentState!.validate() &&
+                            Provider.of<ProviderTry>(context, listen: false)
+                                    .numberOfLots >
+                                Provider.of<ProviderTry>(context, listen: false)
+                                    .listacars
+                                    .length) {
                           Provider.of<ProviderTry>(context, listen: false)
-                              .index;
-                      if (_formKey.currentState!.validate() &&
+                              .addCar(
+                            nomecontroller.text,
+                            placacontroller.text,
+                            image!,
+                            DateFormat('yyyy-MM-dd KK:mm:ss a')
+                                .format(DateTime.now())
+                                .toString(),
+                            index1,
+                          );
                           Provider.of<ProviderTry>(context, listen: false)
-                                  .numberOfLots >
-                              Provider.of<ProviderTry>(context, listen: false)
-                                  .listacars
-                                  .length) {
-                        Provider.of<ProviderTry>(context, listen: false).addCar(
-                          nomecontroller.text,
-                          placacontroller.text,
-                          image!,
-                          DateFormat('yyyy-MM-dd KK:mm:ss a').format(DateTime.now()).toString(),
-                          index1,
-                        );
-                        Provider.of<ProviderTry>(context, listen: false)
-                            .aumentar();
-                        Navigator.pop(context);
-                        print(index1);
-                      }
-                    },
-                    child: const Text('Save'),
+                              .aumentar();
+                          Navigator.pop(context);
+                          print(index1);
+                        }
+                      },
+                      child: const Text('Save', style: TextStyle(fontSize: 22),),
+                    ),
                   ),
                 ),
               ],
             ),
-          ]),
+           ]
+          ),
         ),
       ),
     );

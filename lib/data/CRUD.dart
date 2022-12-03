@@ -5,55 +5,55 @@ import 'package:sqflite/sqflite.dart';
 
 class CRUD {
   static const String table = 'CREATE TABLE $_table1name('
-      '$_ID TEXT, '
-      '$_OWNER TEXT, '
-      '$_PARKING_LANE TEXT, '
-      '$_PRICE INTEGER, '
-      '$_INITIAL_RANGE INTEGER, '
-      '$_END_RANGE INTEGER)';
+      '$_id TEXT, '
+      '$_owner TEXT, '
+      '$_parkingLane TEXT, '
+      '$_price INTEGER, '
+      '$_initialRange INTEGER, '
+      '$_endRange INTEGER)';
 
   static const String _table1name = 'preco_table';
-  static const String _ID = 'ID';
-  static const String _OWNER = 'OWNER';
-  static const String _PARKING_LANE = 'PARKING_LANE';
-  static const String _PRICE = 'PRICE';
-  static const String _INITIAL_RANGE = 'INITIAL_RANGE';
-  static const String _END_RANGE = 'END_RANGE';
+  static const String _id = 'ID';
+  static const String _owner = 'OWNER';
+  static const String _parkingLane = 'PARKING_LANE';
+  static const String _price = 'PRICE';
+  static const String _initialRange = 'INITIAL_RANGE';
+  static const String _endRange = 'END_RANGE';
 
   save(Vaga vagas) async {}
 
   Future<List<Cars>> findAll() async {
-    print('Acessando Find All');
+    //print('Acessando Find All');
     final Database bd = await getDatabase();
     final List<Map<String, dynamic>> result = await bd.query(table);
-    print('procurando dados, resultado: $result');
+    //print('procurando dados, resultado: $result');
     return toList(result);
   }
 
-  List<Cars> toList(List<Map<String, dynamic>> ListaDeCarros) {
+  List<Cars> toList(List<Map<String, dynamic>> listaDeCarros) {
     final List<Cars> carros = [];
-    for (Map<String, dynamic> linha in ListaDeCarros) {
+    for (Map<String, dynamic> linha in listaDeCarros) {
       final Cars carro = Cars(
-        ownername: linha[_OWNER],
-        carId: linha[_ID],
-        start: linha[_INITIAL_RANGE],
-        endDate: linha[_END_RANGE],
+        ownername: linha[_owner],
+        carId: linha[_id],
+        start: linha[_initialRange],
+        endDate: linha[_endRange],
       );
       carros.add(carro);
     }
-    print('Lista de carros $carros');
+    //print('Lista de carros $carros');
     return carros;
   }
 
   Future<List<Cars>> find(String id) async {
-    print('Acessando find: ');
+    //print('Acessando find: ');
     final Database bd = await getDatabase();
     final List<Map<String, dynamic>> result = await bd.query(
       table,
-      where: '$_ID = ?',
+      where: '$_id = ?',
       whereArgs: [id],
     );
-    print('Tarefa encontrada: ${toList(result)}');
+   // print('Tarefa encontrada: ${toList(result)}');
     return toList(result);
   }
 }

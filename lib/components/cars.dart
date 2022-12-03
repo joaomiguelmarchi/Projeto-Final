@@ -29,6 +29,7 @@ class _CarsState extends State<Cars> {
 
   @override
   Widget build(BuildContext context) {
+    final state = Provider.of<ProviderTry>(context);
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
@@ -86,8 +87,7 @@ class _CarsState extends State<Cars> {
                       endRange=end:
                       endRange=widget.endDate!;
 
-                  Provider.of<ProviderTry>(context, listen: false).removeCar(
-                      widget.index!);
+                  Provider.of<ProviderTry>(context, listen: false).removeCar(widget.index!);
 
                   Provider.of<ProviderTry>(context, listen: false).addRegister(
                     widget.ownername,

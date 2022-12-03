@@ -16,6 +16,8 @@ class _CarScreenState extends State<CarScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final state = Provider.of<ProviderTry>(context);
+    print('lenght ${state.listacars.length}');
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -32,12 +34,22 @@ class _CarScreenState extends State<CarScreen> {
             ],
           ),
         ),
-        child: ListView(
-          children: Provider.of<ProviderTry>(context, listen: false).listacars,
+        child: Column(
+          children: [
+            ListView.builder(
+              shrinkWrap: true,
+              itemCount: state.listacars.length,
+              itemBuilder: (context, index) {
+                return Container(
+                    child: state.listacars[index],
+                    );
+              },
+            ),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){
+        onPressed: () {
           Navigator.pushNamed(context, 'recordsscreen');
         },
         child: const Icon(Icons.library_books),
