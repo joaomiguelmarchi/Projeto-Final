@@ -13,7 +13,6 @@ class ProviderTry extends ChangeNotifier{
     List<Records> listrecords = [];
     int index = 0;
 
-
   ProviderTry() {
   _init();
   }
@@ -47,21 +46,18 @@ class ProviderTry extends ChangeNotifier{
       index++;
       notifyListeners();
     }
-    diminuir(){
-      index--;
-      notifyListeners();
-    }
+
     reiniciar(){
       index = 0;
       notifyListeners();
     }
-  addCar(String owner, String car, File? carPhoto, int indexx, String startDate){
-    listacars.add(Cars(ownername: owner, carId: car, photo: carPhoto, index: indexx, start: startDate,));
+  addCar(String owner, String car, File? carPhoto, String startDate, int indexx){
+    listacars.add(Cars(ownername: owner, carId: car, photo: carPhoto, start: startDate, index: indexx));
     notifyListeners();
     }
 
-    addRegister(String name, plate, startDate, endDate, File photo, int index){
-    listrecords.add(Records(name: name, plate: plate, startDate: startDate,endDate: endDate, photography: photo, index: index,));
+    addRegister(String name, plate, startDate, endDate, File photo){
+    listrecords.add(Records(name: name, plate: plate, startDate: startDate,endDate: endDate, photography: photo,));
     notifyListeners();
     }
   }

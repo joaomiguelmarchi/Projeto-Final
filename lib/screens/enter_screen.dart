@@ -146,8 +146,8 @@ class _EnterScreenState extends State<EnterScreen> {
                           nomecontroller.text,
                           placacontroller.text,
                           image!,
-                          index1,
                           DateFormat('yyyy-MM-dd KK:mm:ss a').format(DateTime.now()).toString(),
+                          index1,
                         );
                         Provider.of<ProviderTry>(context, listen: false)
                             .aumentar();

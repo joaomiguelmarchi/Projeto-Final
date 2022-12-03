@@ -8,21 +8,24 @@ class Cars extends StatefulWidget {
   const Cars({
     required this.ownername,
     required this.carId,
-    required this.photo,
-    required this.index,
+    this.photo,
+    this.index,
+    this.endDate,
     required this.start,
     Key? key,
   }) : super(key: key);
   final String ownername, carId, start;
+  final String? endDate;
   final File? photo;
-  final int index;
+  final int? index;
 
   @override
   State<Cars> createState() => _CarsState();
 }
 
 class _CarsState extends State<Cars> {
-  late final String end = DateFormat('yyyy-MM-dd KK:mm:ss a').format(DateTime.now()).toString();
+  late final String end =
+      DateFormat('yyyy-MM-dd KK:mm:ss a').format(DateTime.now()).toString();
 
   @override
   Widget build(BuildContext context) {
@@ -73,26 +76,28 @@ class _CarsState extends State<Cars> {
                   'Entrada: ${widget.start}',
                   style: const TextStyle(fontSize: 12),
                 ),
-                Text(
-                  'Entrada: ${widget.index}',
-                  style: const TextStyle(fontSize: 12),
-                ),
               ],
             ),
             IconButton(
                 onPressed: () {
-                  Provider.of<ProviderTry>(context, listen: false)
-                      .removeCar(widget.index);
+
+                  final String endRange;
+                  (widget.endDate == null)?
+                      endRange=end:
+                      endRange=widget.endDate!;
+
+                  Provider.of<ProviderTry>(context, listen: false).removeCar(
+                      widget.index!);
 
                   Provider.of<ProviderTry>(context, listen: false).addRegister(
-                      widget.ownername,
-                      widget.carId,
-                      widget.start,
-                      end,
-                      widget.photo!,
-                      widget.index);
-
+                    widget.ownername,
+                    widget.carId,
+                    widget.start,
+                    endRange,
+                    widget.photo!,
+                  );
                   Provider.of<ProviderTry>(context, listen: false).reiniciar();
+
                   Navigator.pop(context);
                 },
                 icon: const Icon(

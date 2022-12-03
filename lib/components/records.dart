@@ -2,18 +2,17 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 
 class Records extends StatefulWidget {
-  const Records(
-      {Key? key,
-      required this.name,
-      required this.plate,
-      required this.startDate,
-      required this.endDate,
-      required this.photography,
-      required this.index})
-      : super(key: key);
-  final String name, plate, startDate, endDate;
+  const Records({
+    Key? key,
+    required this.name,
+    required this.plate,
+    required this.startDate,
+    this.endDate,
+    this.photography,
+  }) : super(key: key);
+  final String name, plate, startDate;
+  final String? endDate;
   final File? photography;
-  final int index;
 
   @override
   State<Records> createState() => _RecordsState();
