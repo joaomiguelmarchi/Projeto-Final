@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:projeto_final/components/vagas.dart';
-import 'package:projeto_final/components/cars.dart';
-import 'package:projeto_final/components/records.dart';
+import 'package:projeto_final/model/vagas.dart';
+import 'package:projeto_final/model/cars.dart';
+import 'package:projeto_final/model/records.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 const _num = "_num";
@@ -11,6 +11,8 @@ class ProviderTry extends ChangeNotifier {
   List<Vaga> listateste = [];
   List<Cars> listacars = [];
   List<Records> listrecords = [];
+  String? name, plate, start, end;
+  File? photo;
   int index = 0;
 
   ProviderTry() {
@@ -40,17 +42,21 @@ class ProviderTry extends ChangeNotifier {
 
   buildList() {
     listateste.clear();
-    for (int i = 0; i <_numberOfLots; i++) {
+    for (int i = 0; i < _numberOfLots; i++) {
       listateste.add(Vaga(
-        name: "Vaga ${i + 1}",
-        isFull: true,)
-      );
+        name: "Vaga ${i + 1}"
+      ));
     }
     notifyListeners();
   }
 
-  removeCar(int index) {
-    listacars.removeAt(index);
+  removeCar(Cars car, String end1) {
+    name=car.ownername;
+    plate=car.carId;
+    end=end1;
+    photo = car.photo;
+    start=car.start;
+    listacars.remove(car);
     notifyListeners();
   }
 
@@ -75,14 +81,8 @@ class ProviderTry extends ChangeNotifier {
     notifyListeners();
   }
 
-  addRegister(String name, plate, startDate, endDate, File photo) {
-    listrecords.add(Records(
-      name: name,
-      plate: plate,
-      startDate: startDate,
-      endDate: endDate,
-      photography: photo,
-    ));
+  addRegister() {
+  listrecords.add(Records(name: name!, plate: plate!, startDate: start!, photography: photo!, endDate: end!,));
     notifyListeners();
   }
 }

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'dart:io';
-import 'package:projeto_final/data/provider_try.dart';
+import 'package:projeto_final/controller/provider_try.dart';
 import 'package:provider/provider.dart';
 
 class Cars extends StatefulWidget {
-  const Cars({
+      Cars({
     required this.ownername,
     required this.carId,
     this.photo,
@@ -15,7 +15,7 @@ class Cars extends StatefulWidget {
     Key? key,
   }) : super(key: key);
   final String ownername, carId, start;
-  final String? endDate;
+  late String? endDate;
   final File? photo;
   final int? index;
 
@@ -67,7 +67,7 @@ class _CarsState extends State<Cars> {
               children: [
                 Text(
                   'Condutor: ${widget.ownername}',
-                  style: const TextStyle(fontSize: 24),
+                  style: const TextStyle(fontSize: 23),
                 ),
                 Text(
                   'Placa: ${widget.carId}',
@@ -79,30 +79,30 @@ class _CarsState extends State<Cars> {
                 ),
               ],
             ),
-            IconButton(
-                onPressed: () {
-
-                  final String endRange;
-                  (widget.endDate == null)?
-                      endRange=end:
-                      endRange=widget.endDate!;
-
-                  Provider.of<ProviderTry>(context, listen: false).removeCar(widget.index!);
-
-                  Provider.of<ProviderTry>(context, listen: false).addRegister(
-                    widget.ownername,
-                    widget.carId,
-                    widget.start,
-                    endRange,
-                    widget.photo!,
-                  );
-                  Provider.of<ProviderTry>(context, listen: false).reiniciar();
-
-                  Navigator.pop(context);
-                },
-                icon: const Icon(
-                  Icons.delete,
-                ))
+            // IconButton(
+            //     onPressed: () {
+            //
+            //       final String endRange;
+            //       (widget.endDate == null)?
+            //           endRange=end:
+            //           endRange=widget.endDate!;
+            //
+            //       Provider.of<ProviderTry>(context, listen: false).removeCar(widget.index!);
+            //
+            //       Provider.of<ProviderTry>(context, listen: false).addRegister(
+            //         widget.ownername,
+            //         widget.carId,
+            //         widget.start,
+            //         endRange,
+            //         widget.photo!,
+            //       );
+            //       Provider.of<ProviderTry>(context, listen: false).reiniciar();
+            //
+            //       Navigator.pop(context);
+            //     },
+            //     icon: const Icon(
+            //       Icons.delete,
+            //     ))
           ],
         ),
       ),

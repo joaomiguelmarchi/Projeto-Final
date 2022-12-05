@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_final/components/vagas.dart';
-import 'package:projeto_final/data/provider_try.dart';
-import 'package:projeto_final/screens/list_screen.dart';
+import 'package:projeto_final/controller/provider_try.dart';
+import 'package:projeto_final/view/list_screen.dart';
 import 'package:provider/provider.dart';
 
 class ScreenOne extends StatefulWidget {
@@ -15,7 +14,6 @@ class _ScreenOneState extends State<ScreenOne> {
   @override
   Widget build(BuildContext context1) {
     final state = Provider.of<ProviderTry>(context);
-    final a = state.listateste.length;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,

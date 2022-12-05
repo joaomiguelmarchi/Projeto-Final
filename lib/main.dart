@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_final/data/provider_try.dart';
-import 'package:projeto_final/screens/car_screen.dart';
-import 'package:projeto_final/screens/enter_screen.dart';
-import 'package:projeto_final/screens/initial_screen.dart';
-import 'package:projeto_final/screens/records_screen.dart';
-import 'package:projeto_final/screens/screen1.1.dart';
-import 'package:projeto_final/screens/screen1.dart';
-import 'package:projeto_final/screens/screen2.dart';
-import 'package:projeto_final/screens/screen3.1.dart';
-import 'package:projeto_final/screens/screen3.dart';
+import 'package:projeto_final/controller/provider_try.dart';
+import 'package:projeto_final/view/car_screen.dart';
+import 'package:projeto_final/view/enter_screen.dart';
+import 'package:projeto_final/view/initial_screen.dart';
+import 'package:projeto_final/view/records_screen.dart';
+import 'package:projeto_final/view/screen1.1.dart';
+import 'package:projeto_final/view/screen1.dart';
+import 'package:projeto_final/view/screen2.dart';
 import 'package:provider/provider.dart';
-import 'package:projeto_final/screens/vagas_screen.dart';
+import 'package:projeto_final/view/vagas_screen.dart';
 
 void main() {
   runApp(
@@ -44,8 +42,6 @@ class _MyAppState extends State<MyApp> {
        'screen1.1' : (context) => const ScreenOneEOne(),
        'screen2' : (context) => const ScreenTwo(),
        'enterscreen' : (context) => const EnterScreen(),
-       'screen3' : (context) => const ScreenThree(),
-       'screen3.1' : (context) => const ScreenThreeEOne(),
        'carscreen' : (context) => const CarScreen(),
        'vagasrest' : (context) => const  VagasRestantesScreen(),
        'recordsscreen' : (context) => const  RecordsScreen(),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_final/data/provider_try.dart';
+import 'package:projeto_final/controller/provider_try.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class ScreenOneEOne extends StatefulWidget {
   const ScreenOneEOne({Key? key}) : super(key: key);

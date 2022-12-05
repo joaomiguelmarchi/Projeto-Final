@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 class Vaga extends StatelessWidget {
-  const Vaga({required this.name, required this.isFull, Key? key})
+  const Vaga({required this.name, Key? key})
       : super(key: key);
   final String name;
-  final bool isFull;
 
   @override
   Widget build(BuildContext context) {

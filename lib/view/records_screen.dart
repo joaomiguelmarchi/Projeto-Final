@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_final/data/provider_try.dart';
+import 'package:projeto_final/controller/provider_try.dart';
 import 'package:provider/provider.dart';
 
 class RecordsScreen extends StatefulWidget {
@@ -12,6 +12,7 @@ class RecordsScreen extends StatefulWidget {
 class _RecordsScreenState extends State<RecordsScreen> {
   @override
   Widget build(BuildContext context) {
+    final state = Provider.of<ProviderTry>(context);
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
@@ -29,9 +30,7 @@ class _RecordsScreenState extends State<RecordsScreen> {
             ),
           ),
           child: ListView(
-            children: Provider
-                .of<ProviderTry>(context, listen: false)
-                .listrecords,
+            children: state.listrecords,
           ),
         ),
     );

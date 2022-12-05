@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_final/data/provider_try.dart';
+import 'package:projeto_final/controller/provider_try.dart';
 import 'package:provider/provider.dart';
 
 class VagasRestantesScreen extends StatelessWidget {

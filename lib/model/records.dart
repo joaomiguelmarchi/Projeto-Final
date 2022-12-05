@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 
 class Records extends StatefulWidget {
-  const Records({
+   Records({
     Key? key,
     required this.name,
     required this.plate,
@@ -11,7 +11,7 @@ class Records extends StatefulWidget {
     this.photography,
   }) : super(key: key);
   final String name, plate, startDate;
-  final String? endDate;
+  late String? endDate;
   final File? photography;
 
   @override
