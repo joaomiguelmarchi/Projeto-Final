@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'dart:io';
 import 'package:projeto_final/controller/provider_try.dart';
+import 'package:projeto_final/model/CRUD.dart';
 import 'package:provider/provider.dart';
 
 class Cars extends StatefulWidget {
-      Cars({
+  Cars({
     required this.ownername,
     required this.carId,
     this.photo,
-    this.index,
     this.endDate,
     required this.start,
     Key? key,
@@ -17,7 +17,6 @@ class Cars extends StatefulWidget {
   final String ownername, carId, start;
   late String? endDate;
   final File? photo;
-  final int? index;
 
   @override
   State<Cars> createState() => _CarsState();
@@ -48,20 +47,20 @@ class _CarsState extends State<Cars> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-              ),
-              width: 150,
-              height: 200,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(4),
-                child: Image.file(
-                  widget.photo!,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
+            // Container(
+            //   decoration: BoxDecoration(
+            //     borderRadius: BorderRadius.circular(8),
+            //   ),
+            //   width: 150,
+            //   height: 200,
+            //   child: ClipRRect(
+            //     borderRadius: BorderRadius.circular(4),
+            //     // child: Image.file(
+            //     //   widget.photo!,
+            //     //   fit: BoxFit.cover,
+            //     // ),
+            //   ),
+            // ),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -79,30 +78,25 @@ class _CarsState extends State<Cars> {
                 ),
               ],
             ),
-            // IconButton(
-            //     onPressed: () {
-            //
-            //       final String endRange;
-            //       (widget.endDate == null)?
-            //           endRange=end:
-            //           endRange=widget.endDate!;
-            //
-            //       Provider.of<ProviderTry>(context, listen: false).removeCar(widget.index!);
-            //
-            //       Provider.of<ProviderTry>(context, listen: false).addRegister(
-            //         widget.ownername,
-            //         widget.carId,
-            //         widget.start,
-            //         endRange,
-            //         widget.photo!,
-            //       );
-            //       Provider.of<ProviderTry>(context, listen: false).reiniciar();
-            //
-            //       Navigator.pop(context);
-            //     },
-            //     icon: const Icon(
-            //       Icons.delete,
-            //     ))
+            IconButton(
+                onPressed: () {
+                  CRUD().delete(widget.carId);
+
+                  final String endRange;
+                  (widget.endDate == null)
+                      ? endRange = end
+                      : endRange = widget.endDate!;
+
+                  Provider.of<ProviderTry>(context, listen: false).addRegister(
+                      widget.ownername,
+                      widget.carId,
+                      widget.start,);
+
+                  Navigator.pop(context);
+                },
+                icon: const Icon(
+                  Icons.delete,
+                ))
           ],
         ),
       ),

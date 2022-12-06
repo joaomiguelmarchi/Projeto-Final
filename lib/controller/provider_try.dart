@@ -71,18 +71,17 @@ class ProviderTry extends ChangeNotifier {
   }
 
   addCar(
-      String owner, String car, File? carPhoto, String startDate, int indexx) {
+      String owner, String car, File? carPhoto, String startDate) {
     listacars.add(Cars(
         ownername: owner,
         carId: car,
         photo: carPhoto,
-        start: startDate,
-        index: indexx));
+        start: startDate,));
     notifyListeners();
   }
 
-  addRegister() {
-  listrecords.add(Records(name: name!, plate: plate!, startDate: start!, photography: photo!, endDate: end!,));
+  addRegister(String name, plate, start) {
+  listrecords.add(Records(name: name, plate: plate, startDate: start));
     notifyListeners();
   }
 }

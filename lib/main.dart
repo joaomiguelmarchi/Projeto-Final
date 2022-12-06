@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final/controller/provider_try.dart';
+import 'package:projeto_final/view/a.dart';
 import 'package:projeto_final/view/car_screen.dart';
 import 'package:projeto_final/view/enter_screen.dart';
 import 'package:projeto_final/view/initial_screen.dart';
@@ -42,9 +43,10 @@ class _MyAppState extends State<MyApp> {
        'screen1.1' : (context) => const ScreenOneEOne(),
        'screen2' : (context) => const ScreenTwo(),
        'enterscreen' : (context) => const EnterScreen(),
-       'carscreen' : (context) => const CarScreen(),
+       // 'carscreen' : (context) => const CarScreen(),
        'vagasrest' : (context) => const  VagasRestantesScreen(),
        'recordsscreen' : (context) => const  RecordsScreen(),
+       'a' : (context) => const  A(),
      },
     );
   }

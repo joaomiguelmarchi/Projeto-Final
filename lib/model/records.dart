@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
 
+import 'package:intl/intl.dart';
+
 class Records extends StatefulWidget {
-   Records({
+   const Records({
     Key? key,
     required this.name,
     required this.plate,
     required this.startDate,
-    this.endDate,
     this.photography,
   }) : super(key: key);
   final String name, plate, startDate;
-  late String? endDate;
   final File? photography;
 
   @override
@@ -20,6 +20,7 @@ class Records extends StatefulWidget {
 
 class _RecordsState extends State<Records> {
   @override
+  final end1 = DateFormat('yyyy-MM-dd KK:mm:ss a').format(DateTime.now()).toString();
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -67,27 +68,27 @@ class _RecordsState extends State<Records> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                'Saída: ${widget.endDate}',
+                'Saída: $end1',
                 style: const TextStyle(fontSize: 20),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                width: 150,
-                height: 200,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(4),
-                  child: Image.file(
-                    widget.photography!,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.all(8.0),
+            //   child: Container(
+            //     decoration: BoxDecoration(
+            //       borderRadius: BorderRadius.circular(8),
+            //     ),
+            //     width: 150,
+            //     height: 200,
+            //     child: ClipRRect(
+            //       borderRadius: BorderRadius.circular(4),
+            //       child: Image.file(
+            //         widget.photography!,
+            //         fit: BoxFit.cover,
+            //       ),
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),

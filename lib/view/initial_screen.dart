@@ -126,7 +126,7 @@ class _InitialScreenState extends State<InitialScreen> {
                         ),
                         child: ElevatedButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, 'carscreen');
+                            Navigator.pushNamed(context, 'a');
                           },
                           child: const Text(
                             'Veículos',

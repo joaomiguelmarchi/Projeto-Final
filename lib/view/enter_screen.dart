@@ -3,6 +3,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'dart:io';
 import 'package:projeto_final/controller/provider_try.dart';
+import 'package:projeto_final/model/CRUD.dart';
+import 'package:projeto_final/model/cars.dart';
 import 'package:provider/provider.dart';
 
 class EnterScreen extends StatefulWidget {
@@ -137,10 +139,57 @@ class _EnterScreenState extends State<EnterScreen> {
                           )
                         ],
                       )
-                    : Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: SizedBox(
-                            width: 200, height: 250, child: Image.file(image!)),
+                    : Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: SizedBox(
+                                width: 200,
+                                height: 250,
+                                child: Image.file(image!)),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: SizedBox(
+                                  height: 100,
+                                  width: 100,
+                                  child: IconButton(
+                                    onPressed: () {
+                                      pegarImagemCamera();
+                                    },
+                                    icon: const Icon(
+                                      Icons.photo_camera_outlined,
+                                      size: 60,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 100,
+                                height: 100,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: SizedBox(
+                                  height: 100,
+                                  width: 100,
+                                  child: IconButton(
+                                    onPressed: () {
+                                      pegarImagemGaleria();
+                                    },
+                                    icon: const Icon(
+                                      Icons.add_photo_alternate_outlined,
+                                      size: 60,
+                                    ),
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ],
                       ),
                 const SizedBox(
                   width: 50,
@@ -153,39 +202,33 @@ class _EnterScreenState extends State<EnterScreen> {
                     height: 50,
                     child: ElevatedButton(
                       onPressed: () {
-                        int index1 =
-                            Provider.of<ProviderTry>(context, listen: false)
-                                .index;
                         if (_formKey.currentState!.validate() &&
                             Provider.of<ProviderTry>(context, listen: false)
                                     .numberOfLots >
                                 Provider.of<ProviderTry>(context, listen: false)
                                     .listacars
                                     .length) {
-                          Provider.of<ProviderTry>(context, listen: false)
-                              .addCar(
-                            nomecontroller.text,
-                            placacontroller.text,
-                            image!,
-                            DateFormat('yyyy-MM-dd KK:mm:ss a')
-                                .format(DateTime.now())
-                                .toString(),
-                            index1,
+                          CRUD().save(
+                            Cars(
+                              ownername: nomecontroller.text,
+                              carId: placacontroller.text,
+                              start: DateFormat('yyyy-MM-dd KK:mm:ss a')
+                                  .format(DateTime.now()).toString(),
+                            ),
                           );
-                          Provider.of<ProviderTry>(context, listen: false)
-                              .aumentar();
                           Navigator.pop(context);
-                          print(index1);
                         }
                       },
-                      child: const Text('Save', style: TextStyle(fontSize: 22),),
+                      child: const Text(
+                        'Save',
+                        style: TextStyle(fontSize: 22),
+                      ),
                     ),
                   ),
                 ),
               ],
             ),
-           ]
-          ),
+          ]),
         ),
       ),
     );
