@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Vaga extends StatelessWidget {
-  const Vaga({required this.name, Key? key})
+class Lots extends StatelessWidget {
+  const Lots({required this.name, Key? key})
       : super(key: key);
   final String name;
 
@@ -25,6 +25,7 @@ class Vaga extends StatelessWidget {
             name,
             style: const TextStyle(
                 fontSize: 25,
+              color: Colors.black
             ),
           ),
               )

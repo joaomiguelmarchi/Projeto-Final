@@ -18,21 +18,9 @@ class _RecordsScreenState extends State<RecordsScreen> {
           centerTitle: true,
           title: const Text('Registros'),
         ),
-        body: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                Colors.cyan,
-                Colors.yellow,
-              ],
-            ),
-          ),
-          child: ListView(
+        body: ListView(
             children: state.listrecords,
           ),
-        ),
-    );
+        );
   }
 }

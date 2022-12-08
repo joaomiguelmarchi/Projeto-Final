@@ -6,12 +6,14 @@ class CRUD {
   static const String table = 'CREATE TABLE $_tablename('
       '$_id TEXT, '
       '$_owner TEXT, '
+      //'$_photo TEXT, '
       '$_initialRange INTEGER)';
 
 
   static const String _tablename = 'vaga_table';
   static const String _id = 'ID';
   static const String _owner = 'OWNER';
+ // static const String _photo = 'PHOTO';
   static const String _initialRange = 'INITIAL_RANGE';
 
 
@@ -39,7 +41,7 @@ class CRUD {
     carMap[_owner] = car.ownername;
     carMap[_id] = car.carId;
     carMap[_initialRange] = car.start;
-    //carMap[_endRange] = car.endDate;
+    //carMap[_photo] = car.photo;
     print('Mapa de tarefas: $carMap');
     return carMap;
   }
@@ -54,11 +56,12 @@ class CRUD {
 
   List<Cars> toList(List<Map<String, dynamic>> listaDeCarros) {
     final List<Cars> cars = [];
-    for (Map<String, dynamic> linha in listaDeCarros) {
+    for (Map<String, dynamic> row in listaDeCarros) {
       final Cars carro = Cars(
-        ownername: linha[_owner],
-        carId: linha[_id],
-        start: linha[_initialRange],
+        ownername: row[_owner],
+        carId: row[_id],
+        start: row[_initialRange],
+        //photo: row[_photo],
       );
       cars.add(carro);
     }

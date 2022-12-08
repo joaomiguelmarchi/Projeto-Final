@@ -1,20 +1,32 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:projeto_final/model/vagas.dart';
+import 'package:projeto_final/model/lots.dart';
 import 'package:projeto_final/model/cars.dart';
 import 'package:projeto_final/model/records.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 const _num = "_num";
 
+var darkTheme = ThemeData(
+  primarySwatch: Colors.teal,
+  brightness: Brightness.dark,
+  visualDensity: VisualDensity.adaptivePlatformDensity,
+);
+
+var lightTheme = ThemeData(
+  primarySwatch: Colors.blue,
+  brightness: Brightness.light,
+  visualDensity: VisualDensity.adaptivePlatformDensity,
+);
+
 class ProviderTry extends ChangeNotifier {
-  List<Vaga> listateste = [];
+  List<Lots> listoflots = [];
   List<Cars> listacars = [];
   List<Records> listrecords = [];
-  String? name, plate, start, end;
-  File? photo;
-  int index = 0;
-
+  int numberofcars = 0;
+  var themevar;
+  bool theme = true;
+  File? image;
   ProviderTry() {
     init();
   }
@@ -41,47 +53,36 @@ class ProviderTry extends ChangeNotifier {
   }
 
   buildList() {
-    listateste.clear();
+    listoflots.clear();
     for (int i = 0; i < _numberOfLots; i++) {
-      listateste.add(Vaga(
+      listoflots.add(Lots(
         name: "Vaga ${i + 1}"
       ));
     }
     notifyListeners();
   }
-
-  removeCar(Cars car, String end1) {
-    name=car.ownername;
-    plate=car.carId;
-    end=end1;
-    photo = car.photo;
-    start=car.start;
-    listacars.remove(car);
-    notifyListeners();
-  }
-
-  aumentar() {
-    index++;
-    notifyListeners();
-  }
-
-  reiniciar() {
-    index = 0;
-    notifyListeners();
-  }
-
-  addCar(
-      String owner, String car, File? carPhoto, String startDate) {
-    listacars.add(Cars(
-        ownername: owner,
-        carId: car,
-        photo: carPhoto,
-        start: startDate,));
-    notifyListeners();
+  getl(int i){
+    numberofcars = i;
   }
 
   addRegister(String name, plate, start) {
-  listrecords.add(Records(name: name, plate: plate, startDate: start));
+  listrecords.add(Records(name: name, plate: plate, startDate: start,));
     notifyListeners();
   }
+
+  changeTheme(bool b){
+    theme = b;
+    print(theme);
+    notifyListeners();
+  }
+  getTheme(){
+
+    if (theme==true){
+      themevar = lightTheme;
+    }else{
+      themevar= darkTheme;
+    }
+    return themevar;
+  }
+
 }

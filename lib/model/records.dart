@@ -9,10 +9,10 @@ class Records extends StatefulWidget {
     required this.name,
     required this.plate,
     required this.startDate,
-    this.photography,
+     this.photography,
   }) : super(key: key);
   final String name, plate, startDate;
-  final File? photography;
+   final File? photography;
 
   @override
   State<Records> createState() => _RecordsState();
@@ -48,28 +48,28 @@ class _RecordsState extends State<Records> {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 'Condutor: ${widget.name}',
-                style: const TextStyle(fontSize: 24),
+                style: const TextStyle(fontSize: 24, color: Colors.black),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 'Placa: ${widget.plate}',
-                style: const TextStyle(fontSize: 24),
+                style: const TextStyle(fontSize: 24, color: Colors.black),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 'Entrada: ${widget.startDate}',
-                style: const TextStyle(fontSize: 20),
+                style: const TextStyle(fontSize: 20, color: Colors.black),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 'Saída: $end1',
-                style: const TextStyle(fontSize: 20),
+                style: const TextStyle(fontSize: 20, color: Colors.black),
               ),
             ),
             // Padding(

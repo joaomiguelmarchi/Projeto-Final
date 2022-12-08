@@ -17,18 +17,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
         centerTitle: true,
         title: const Text('Preço p/hora'),
       ),
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Colors.cyan,
-              Colors.yellow,
-            ],
-          ),
-        ),
-        child: Column(
+      body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Row(
@@ -53,7 +42,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
                         child: const Center(
                           child: Text(
                             'Faixa',
-                            style: TextStyle(fontSize: 29),
+                            style: TextStyle(fontSize: 29, ),
                           ),
                         ),
                       ),
@@ -67,7 +56,6 @@ class _ScreenTwoState extends State<ScreenTwo> {
                             borderRadius: BorderRadius.circular(5),
                             border: Border.all(
                               width: 2,
-                              color: Colors.black,
                             )),
                         child: const Center(
                           child: Text(
@@ -88,7 +76,6 @@ class _ScreenTwoState extends State<ScreenTwo> {
                             borderRadius: BorderRadius.circular(5),
                             border: Border.all(
                               width: 2,
-                              color: Colors.black,
                             )),
                         child: const Center(
                           child: Text(
@@ -109,7 +96,6 @@ class _ScreenTwoState extends State<ScreenTwo> {
                             borderRadius: BorderRadius.circular(5),
                             border: Border.all(
                               width: 2,
-                              color: Colors.black,
                             )),
                         child: const Center(
                           child: Text(
@@ -156,14 +142,13 @@ class _ScreenTwoState extends State<ScreenTwo> {
                           borderRadius: BorderRadius.circular(8),
                           color: Colors.white54,
                           border: Border.all(
-                            color: Colors.black,
                             width: 3,
                           ),
                         ),
                         child: const Center(
                           child: Text(
                             'Intervalo',
-                            style: TextStyle(fontSize: 24),
+                            style: TextStyle(fontSize: 24, ),
                           ),
                         ),
                       ),
@@ -177,7 +162,6 @@ class _ScreenTwoState extends State<ScreenTwo> {
                             borderRadius: BorderRadius.circular(5),
                             border: Border.all(
                               width: 2,
-                              color: Colors.black,
                             )),
                         child: const Center(
                           child: Text(
@@ -198,7 +182,6 @@ class _ScreenTwoState extends State<ScreenTwo> {
                             borderRadius: BorderRadius.circular(5),
                             border: Border.all(
                               width: 2,
-                              color: Colors.black,
                             )),
                         child: const Center(
                           child: Text(
@@ -219,7 +202,6 @@ class _ScreenTwoState extends State<ScreenTwo> {
                             borderRadius: BorderRadius.circular(5),
                             border: Border.all(
                               width: 2,
-                              color: Colors.black,
                             )),
                         child: const Center(
                           child: Text(
@@ -240,9 +222,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
                             borderRadius: BorderRadius.circular(5),
                             border: Border.all(
                               width: 2,
-                              color: Colors.black,
-                            )
-                        ),
+                            )),
                         child: const Center(
                           child: Text(
                             'Mais de 8h',
@@ -274,7 +254,9 @@ class _ScreenTwoState extends State<ScreenTwo> {
                         child: const Center(
                           child: Text(
                             'Preço',
-                            style: TextStyle(fontSize: 29),
+                            style: TextStyle(
+                              fontSize: 29,
+                            ),
                           ),
                         ),
                       ),
@@ -288,9 +270,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
                             borderRadius: BorderRadius.circular(5),
                             border: Border.all(
                               width: 2,
-                              color: Colors.black,
-                            )
-                        ),
+                            )),
                         child: const Center(
                           child: Text(
                             'RS 4,00',
@@ -310,9 +290,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
                             borderRadius: BorderRadius.circular(5),
                             border: Border.all(
                               width: 2,
-                              color: Colors.black,
-                            )
-                        ),
+                            )),
                         child: const Center(
                           child: Text(
                             'RS 3,75',
@@ -332,9 +310,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
                             borderRadius: BorderRadius.circular(5),
                             border: Border.all(
                               width: 2,
-                              color: Colors.black,
-                            )
-                        ),
+                            )),
                         child: const Center(
                           child: Text(
                             'RS 3,50',
@@ -354,9 +330,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
                             borderRadius: BorderRadius.circular(5),
                             border: Border.all(
                               width: 2,
-                              color: Colors.black,
-                            )
-                        ),
+                            )),
                         child: const Center(
                           child: Text(
                             'RS 8,00',
@@ -373,7 +347,6 @@ class _ScreenTwoState extends State<ScreenTwo> {
             ),
           ],
         ),
-      ),
-    );
+      );
   }
 }

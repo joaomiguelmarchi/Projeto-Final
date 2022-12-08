@@ -17,24 +17,13 @@ class _ScreenOneEOneState extends State<ScreenOneEOne> {
   Widget build(
     BuildContext context,
   ) {
-    Provider.of<ProviderTry>(context, listen: false);
+    final state = Provider.of<ProviderTry>(context);
     return Form(
       key: _formKey,
       child: Scaffold(
         appBar: AppBar(),
         body: Center(
-          child: Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  Colors.cyan,
-                  Colors.yellow,
-                ],
-              ),
-            ),
-            child: ListView(children: [
+          child: ListView(children: [
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -85,10 +74,8 @@ class _ScreenOneEOneState extends State<ScreenOneEOne> {
                     child: ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          Provider.of<ProviderTry>(context, listen: false)
-                              .changeNumberOfLots(numberController.text);
-                          Provider.of<ProviderTry>(context, listen: false)
-                              .buildList();
+                          state.changeNumberOfLots(numberController.text);
+                          state.buildList();
                           Navigator.popUntil(context, (route) => route.isFirst);
                         }
                       },
@@ -100,7 +87,6 @@ class _ScreenOneEOneState extends State<ScreenOneEOne> {
             ]),
           ),
         ),
-      ),
-    );
+      );
   }
 }

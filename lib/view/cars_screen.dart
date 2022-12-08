@@ -1,33 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_final/controller/provider_try.dart';
 import 'package:projeto_final/model/CRUD.dart';
 import 'package:projeto_final/model/cars.dart';
+import 'package:provider/provider.dart';
 
-class A extends StatefulWidget {
-  const A({Key? key}) : super(key: key);
+class CarsScreen extends StatefulWidget {
+  const CarsScreen({Key? key}) : super(key: key);
 
   @override
-  State<A> createState() => _AState();
+  State<CarsScreen> createState() => _CarsScreenState();
 }
 
-class _AState extends State<A> {
+class _CarsScreenState extends State<CarsScreen> {
   @override
   Widget build(BuildContext context) {
+    final state = Provider.of<ProviderTry>(context);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         title: const Text('Veículos'),
       ),
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                Colors.cyan,
-                Colors.yellow,
-              ]),
-        ),
-        child: Padding(
+      body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: FutureBuilder<List<Cars>>(
               future: CRUD().findAll(),
@@ -67,6 +60,7 @@ class _AState extends State<A> {
                         return ListView.builder(
                             itemCount: items.length,
                             itemBuilder: (BuildContext context, int index) {
+                              state.getl(items.length);
                               final Cars car = items[index];
                               return car;
                             });
@@ -86,7 +80,8 @@ class _AState extends State<A> {
                               child: Text(
                                 'Não há Nenhum Veículo',
                                 style: TextStyle(
-                                    fontStyle: FontStyle.italic, fontSize: 35),
+                                    fontStyle: FontStyle.italic,
+                                    fontSize: 35,),
                               ),
                             ),
                           ],
@@ -102,7 +97,6 @@ class _AState extends State<A> {
                 }
               }),
         ),
-      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.pushNamed(context, 'recordsscreen');

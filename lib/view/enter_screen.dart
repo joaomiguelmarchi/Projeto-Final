@@ -20,9 +20,11 @@ class _EnterScreenState extends State<EnterScreen> {
   final _formKey = GlobalKey<FormState>();
   ImagePicker imagePicker = ImagePicker();
   File? image;
+  String? photo2;
 
   @override
   Widget build(BuildContext context) {
+  final state = Provider.of<ProviderTry>(context);
     return Form(
       key: _formKey,
       child: Scaffold(
@@ -30,18 +32,7 @@ class _EnterScreenState extends State<EnterScreen> {
           centerTitle: true,
           title: const Text('Adicionar Veículo'),
         ),
-        body: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                Colors.cyan,
-                Colors.yellow,
-              ],
-            ),
-          ),
-          child: ListView(children: [
+        body: ListView(children: [
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -108,7 +99,8 @@ class _EnterScreenState extends State<EnterScreen> {
                               width: 100,
                               child: IconButton(
                                 onPressed: () {
-                                  pegarImagemCamera();
+                                 pegarImagemCamera();
+                                 state.image = image;
                                 },
                                 icon: const Icon(
                                   Icons.photo_camera_outlined,
@@ -129,6 +121,7 @@ class _EnterScreenState extends State<EnterScreen> {
                               child: IconButton(
                                 onPressed: () {
                                   pegarImagemGaleria();
+                                  state.image = image;
                                 },
                                 icon: const Icon(
                                   Icons.add_photo_alternate_outlined,
@@ -158,7 +151,8 @@ class _EnterScreenState extends State<EnterScreen> {
                                   width: 100,
                                   child: IconButton(
                                     onPressed: () {
-                                      pegarImagemCamera();
+                                     pegarImagemCamera();
+                                     state.image = image;
                                     },
                                     icon: const Icon(
                                       Icons.photo_camera_outlined,
@@ -179,6 +173,7 @@ class _EnterScreenState extends State<EnterScreen> {
                                   child: IconButton(
                                     onPressed: () {
                                       pegarImagemGaleria();
+                                      state.image = image;
                                     },
                                     icon: const Icon(
                                       Icons.add_photo_alternate_outlined,
@@ -221,7 +216,7 @@ class _EnterScreenState extends State<EnterScreen> {
                       },
                       child: const Text(
                         'Save',
-                        style: TextStyle(fontSize: 22),
+                        style: TextStyle(fontSize: 22, ),
                       ),
                     ),
                   ),
@@ -230,15 +225,13 @@ class _EnterScreenState extends State<EnterScreen> {
             ),
           ]),
         ),
-      ),
-    );
+      );
   }
-
   pegarImagemGaleria() async {
     final PickedFile? imagemTemporaria =
-        await imagePicker.getImage(source: ImageSource.gallery);
+    await imagePicker.getImage(source: ImageSource.gallery);
     if (imagemTemporaria != null) {
-      setState(() {
+      setState((){
         image = File(imagemTemporaria.path);
       });
     }
@@ -246,11 +239,14 @@ class _EnterScreenState extends State<EnterScreen> {
 
   pegarImagemCamera() async {
     final PickedFile? imagemTemporaria =
-        await imagePicker.getImage(source: ImageSource.camera);
+    await imagePicker.getImage(source: ImageSource.camera);
     if (imagemTemporaria != null) {
-      setState(() {
+      setState((){
         image = File(imagemTemporaria.path);
       });
     }
   }
 }
+
+
+

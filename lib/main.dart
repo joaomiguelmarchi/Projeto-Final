@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final/controller/provider_try.dart';
-import 'package:projeto_final/view/a.dart';
-import 'package:projeto_final/view/car_screen.dart';
+import 'package:projeto_final/view/cars_screen.dart';
 import 'package:projeto_final/view/enter_screen.dart';
 import 'package:projeto_final/view/initial_screen.dart';
 import 'package:projeto_final/view/records_screen.dart';
 import 'package:projeto_final/view/screen1.1.dart';
 import 'package:projeto_final/view/screen1.dart';
 import 'package:projeto_final/view/screen2.dart';
+import 'package:projeto_final/view/settings_screen.dart';
 import 'package:provider/provider.dart';
-import 'package:projeto_final/view/vagas_screen.dart';
+import 'package:projeto_final/view/lots_screen.dart';
 
 void main() {
   runApp(
@@ -30,12 +30,11 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
+    final state = Provider.of<ProviderTry>(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.teal,
-      ),
+      theme: state.getTheme(),
      initialRoute: '/',
      routes: {
         '/' : (context) => const InitialScreen(),
@@ -43,10 +42,10 @@ class _MyAppState extends State<MyApp> {
        'screen1.1' : (context) => const ScreenOneEOne(),
        'screen2' : (context) => const ScreenTwo(),
        'enterscreen' : (context) => const EnterScreen(),
-       // 'carscreen' : (context) => const CarScreen(),
-       'vagasrest' : (context) => const  VagasRestantesScreen(),
+        'carsscreen' : (context) => const CarsScreen(),
+       'vagasrest' : (context) => const  LotsScreen(),
        'recordsscreen' : (context) => const  RecordsScreen(),
-       'a' : (context) => const  A(),
+       'settings' : (context) => const  Settings(),
      },
     );
   }

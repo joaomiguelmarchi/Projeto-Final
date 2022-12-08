@@ -14,7 +14,7 @@ class _ListScreenState extends State<ListScreen> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: (context.watch<ProviderTry>().listateste),
+      children: (context.watch<ProviderTry>().listoflots),
     );
   }
 }
