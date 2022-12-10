@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ScreenTwo extends StatefulWidget {
   const ScreenTwo({Key? key}) : super(key: key);
@@ -15,7 +16,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Preço p/hora'),
+        title: Text(AppLocalizations.of(context)!.screen2_title),
       ),
       body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

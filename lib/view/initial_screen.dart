@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final/controller/provider_try.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class InitialScreen extends StatefulWidget {
   const InitialScreen({Key? key}) : super(key: key);
@@ -41,7 +42,7 @@ class _InitialScreenState extends State<InitialScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       height: 70,
-                      width: 160,
+                      width: 180,
                       decoration: BoxDecoration(
                         color: Colors.lightBlueAccent,
                         borderRadius: BorderRadius.circular(10),
@@ -51,14 +52,14 @@ class _InitialScreenState extends State<InitialScreen> {
                           state.init();
                           if (state.listoflots.isEmpty ||
                               state.numberOfLots != state.listoflots.length) {
-                            state.buildList();
+                            state.buildList(AppLocalizations.of(context)!.lots_list);
                           }
                           Navigator.pushNamed(context, 'screen1');
                         },
-                        child: const Text(
-                          'N° de Vagas',
-                          style: TextStyle(
-                            fontSize: 20,
+                        child: Center(
+                          child: Text(
+                          AppLocalizations.of(context)!.initial_screen_btn1,
+                            style: const TextStyle(fontSize: 18),
                           ),
                         ),
                       ),
@@ -68,7 +69,7 @@ class _InitialScreenState extends State<InitialScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       height: 70,
-                      width: 160,
+                      width: 180,
                       decoration: BoxDecoration(
                         color: Colors.lightBlueAccent,
                         borderRadius: BorderRadius.circular(10),
@@ -77,9 +78,9 @@ class _InitialScreenState extends State<InitialScreen> {
                         onPressed: () {
                           Navigator.pushNamed(context, 'screen2');
                         },
-                        child: const Text(
-                          'Preço p/ Hora',
-                          style: TextStyle(
+                        child: Text(
+                          AppLocalizations.of(context)!.initial_screen_btn2,
+                          style: const TextStyle(
                             fontSize: 20,
                           ),
                         ),
@@ -95,7 +96,7 @@ class _InitialScreenState extends State<InitialScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       height: 70,
-                      width: 160,
+                      width: 180,
                       decoration: BoxDecoration(
                         color: Colors.lightBlueAccent,
                         borderRadius: BorderRadius.circular(10),
@@ -104,9 +105,9 @@ class _InitialScreenState extends State<InitialScreen> {
                         onPressed: () {
                           Navigator.pushNamed(context, 'enterscreen');
                         },
-                        child: const Text(
-                          'Entradas',
-                          style: TextStyle(
+                        child:  Text(
+                          AppLocalizations.of(context)!.initial_screen_btn3,
+                          style: const TextStyle(
                             fontSize: 20,
                           ),
                         ),
@@ -117,7 +118,7 @@ class _InitialScreenState extends State<InitialScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       height: 70,
-                      width: 160,
+                      width: 180,
                       decoration: BoxDecoration(
                         color: Colors.lightBlueAccent,
                         borderRadius: BorderRadius.circular(10),
@@ -126,9 +127,9 @@ class _InitialScreenState extends State<InitialScreen> {
                         onPressed: () {
                           Navigator.pushNamed(context, 'carsscreen');
                         },
-                        child: const Text(
-                          'Veículos',
-                          style: TextStyle(
+                        child:  Text(
+                          AppLocalizations.of(context)!.initial_screen_btn4,
+                          style: const TextStyle(
                             fontSize: 20,
                           ),
                         ),
@@ -141,7 +142,7 @@ class _InitialScreenState extends State<InitialScreen> {
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
                   height: 70,
-                  width: 160,
+                  width: 180,
                   decoration: BoxDecoration(
                     color: Colors.lightBlueAccent,
                     borderRadius: BorderRadius.circular(10),
@@ -150,14 +151,14 @@ class _InitialScreenState extends State<InitialScreen> {
                     onPressed: () {
                       if (state.listoflots.isEmpty ||
                           state.numberOfLots != state.listoflots.length) {
-                        state.buildList();
+                        state.buildList(AppLocalizations.of(context)!.lots_list);
                       }
                       Navigator.pushNamed(context, 'vagasrest');
                     },
-                    child: const Text(
-                      'Vagas Utilizadas',
-                      style: TextStyle(
-                        fontSize: 17,
+                    child: Text(
+                      AppLocalizations.of(context)!.initial_screen_btn5,
+                      style: const TextStyle(
+                        fontSize: 19,
                       ),
                     ),
                   ),

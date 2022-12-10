@@ -6,6 +6,7 @@ import 'package:projeto_final/controller/provider_try.dart';
 import 'package:projeto_final/model/CRUD.dart';
 import 'package:projeto_final/model/cars.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class EnterScreen extends StatefulWidget {
   const EnterScreen({Key? key}) : super(key: key);
@@ -30,7 +31,7 @@ class _EnterScreenState extends State<EnterScreen> {
       child: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: const Text('Adicionar Veículo'),
+          title:  Text(AppLocalizations.of(context)!.enter_screen_title),
         ),
         body: ListView(children: [
             Column(
@@ -52,9 +53,9 @@ class _EnterScreenState extends State<EnterScreen> {
                     keyboardType: TextInputType.text,
                     controller: nomecontroller,
                     textAlign: TextAlign.center,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Nome do condutor',
+                    decoration: InputDecoration(
+                      border: const OutlineInputBorder(),
+                      hintText: AppLocalizations.of(context)!.enter_screen_type1,
                       fillColor: Colors.white10,
                       filled: true,
                     ),
@@ -76,9 +77,9 @@ class _EnterScreenState extends State<EnterScreen> {
                     keyboardType: TextInputType.url,
                     controller: placacontroller,
                     textAlign: TextAlign.center,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Placa',
+                    decoration:  InputDecoration(
+                      border: const OutlineInputBorder(),
+                      hintText: AppLocalizations.of(context)!.enter_screen_type2,
                       fillColor: Colors.white10,
                       filled: true,
                     ),
@@ -193,8 +194,8 @@ class _EnterScreenState extends State<EnterScreen> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
-                    width: 80,
-                    height: 50,
+                    width: 100,
+                    height: 60,
                     child: ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate() &&
@@ -214,9 +215,9 @@ class _EnterScreenState extends State<EnterScreen> {
                           Navigator.pop(context);
                         }
                       },
-                      child: const Text(
-                        'Save',
-                        style: TextStyle(fontSize: 22, ),
+                      child:  Text(
+                        AppLocalizations.of(context)!.enter_screen_btn1,
+                        style: const TextStyle(fontSize: 22,),
                       ),
                     ),
                   ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto_final/controller/provider_try.dart';
 import 'package:projeto_final/model/CRUD.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Cars extends StatefulWidget {
   const Cars({
@@ -56,19 +57,19 @@ class _CarsState extends State<Cars> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Text(
-                  'Condutor: ${widget.ownername}',
+                  '${AppLocalizations.of(context)!.cars_list_name}${widget.ownername}',
                   style: const TextStyle(
                     fontSize: 23,
                   ),
                 ),
                 Text(
-                  'Placa: ${widget.carId}',
+                  '${AppLocalizations.of(context)!.cars_list_plate}${widget.carId}',
                   style: const TextStyle(
                     fontSize: 24,
                   ),
                 ),
                 Text(
-                  'Entrada: ${widget.start}',
+                  '${AppLocalizations.of(context)!.cars_list_start}${widget.start}',
                   style: const TextStyle(
                     fontSize: 12,
                   ),

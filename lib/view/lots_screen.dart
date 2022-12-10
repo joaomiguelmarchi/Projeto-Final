@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final/controller/provider_try.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LotsScreen extends StatefulWidget {
   const LotsScreen({Key? key}) : super(key: key);
@@ -18,11 +19,10 @@ class _LotsScreenState extends State<LotsScreen> {
       body: Center(
         child: Center(
           child: Text(
-            'Vagas: ${state.numberofcars} /'
+            '${AppLocalizations.of(context)!.lots_screen_text}: ${state.numberofcars} /'
             ' ${state.listoflots.length}',
             style: const TextStyle(
               fontSize: 50,
-              color: Colors.black,
             ),
           ),
         ),

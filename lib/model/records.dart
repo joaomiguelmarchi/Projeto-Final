@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 
 class Records extends StatefulWidget {
@@ -36,9 +36,9 @@ class _RecordsState extends State<Records> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            const Text(
-              'Veículo Removido',
-              style: TextStyle(
+            Text(
+              AppLocalizations.of(context)!.records_list_title,
+              style: const TextStyle(
                 fontStyle: FontStyle.italic,
                 fontSize: 30,
                 color: Colors.red,
@@ -47,28 +47,28 @@ class _RecordsState extends State<Records> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                'Condutor: ${widget.name}',
+                '${AppLocalizations.of(context)!.records_list_name}${widget.name}',
                 style: const TextStyle(fontSize: 24, color: Colors.black),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                'Placa: ${widget.plate}',
+                '${AppLocalizations.of(context)!.records_list_plate}${widget.plate}',
                 style: const TextStyle(fontSize: 24, color: Colors.black),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                'Entrada: ${widget.startDate}',
+                '${AppLocalizations.of(context)!.records_list_start}${widget.startDate}',
                 style: const TextStyle(fontSize: 20, color: Colors.black),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                'Saída: $end1',
+                '${AppLocalizations.of(context)!.records_list_end}$end1',
                 style: const TextStyle(fontSize: 20, color: Colors.black),
               ),
             ),

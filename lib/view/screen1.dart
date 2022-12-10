@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final/view/list_screen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ScreenOne extends StatefulWidget {
   const ScreenOne({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class _ScreenOneState extends State<ScreenOne> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('N° de Vagas'),
+        title: Text(AppLocalizations.of(context)!.screen1_title),
       ),
       body: ListView(
         padding: const EdgeInsets.all(8),
@@ -26,7 +27,7 @@ class _ScreenOneState extends State<ScreenOne> {
         onPressed: () {
           Navigator.pushNamed(context, 'screen1.1');
         },
-        child: const Icon(Icons.change_circle),
+        child: const Icon(Icons.add),
       ),
     );
   }

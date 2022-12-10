@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final/controller/provider_try.dart';
 import 'package:projeto_final/model/CRUD.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:projeto_final/model/cars.dart';
 import 'package:provider/provider.dart';
 
@@ -18,7 +19,7 @@ class _CarsScreenState extends State<CarsScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Veículos'),
+        title:  Text(AppLocalizations.of(context)!.cars_screen_title),
       ),
       body: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -67,8 +68,8 @@ class _CarsScreenState extends State<CarsScreen> {
                       }
                       return Center(
                         child: Column(
-                          children: const [
-                            Padding(
+                          children: [
+                            const Padding(
                               padding: EdgeInsets.all(8.0),
                               child: Icon(
                                 Icons.warning_amber,
@@ -78,8 +79,8 @@ class _CarsScreenState extends State<CarsScreen> {
                             Padding(
                               padding: EdgeInsets.all(8.0),
                               child: Text(
-                                'Não há Nenhum Veículo',
-                                style: TextStyle(
+                                AppLocalizations.of(context)!.cars_screen_text,
+                                style: const TextStyle(
                                     fontStyle: FontStyle.italic,
                                     fontSize: 35,),
                               ),

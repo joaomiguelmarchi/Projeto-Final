@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final/controller/provider_try.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ScreenOneEOne extends StatefulWidget {
   const ScreenOneEOne({Key? key}) : super(key: key);
@@ -31,14 +32,16 @@ class _ScreenOneEOneState extends State<ScreenOneEOne> {
                     width: 100,
                     height: 100,
                   ),
-                  const SizedBox(
-                    height: 100,
-                    width: 290,
-                    child: Text(
-                      'Digite um Numero',
-                      style: TextStyle(
-                        fontSize: 35,
-                        fontStyle: FontStyle.italic,
+                   SizedBox(
+                    height: 200,
+                    width: 390,
+                    child: Center(
+                      child: Text(
+                        AppLocalizations.of(context)!.screen1n1_title,
+                        style: const TextStyle(
+                          fontSize: 35,
+                          fontStyle: FontStyle.italic,
+                        ),
                       ),
                     ),
                   ),
@@ -56,9 +59,9 @@ class _ScreenOneEOneState extends State<ScreenOneEOne> {
                       keyboardType: TextInputType.number,
                       controller: numberController,
                       textAlign: TextAlign.center,
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'Numero de Vagas',
+                      decoration: InputDecoration(
+                        border: const OutlineInputBorder(),
+                        hintText:  AppLocalizations.of(context)!.screen1n1_type,
                         fillColor: Colors.white10,
                         filled: true,
                       ),
@@ -69,17 +72,23 @@ class _ScreenOneEOneState extends State<ScreenOneEOne> {
                     height: 100,
                   ),
                   SizedBox(
-                    width: 80,
-                    height: 50,
+                    width: 100,
+                    height: 60,
                     child: ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          state.changeNumberOfLots(numberController.text);
-                          state.buildList();
+                          if (state.numberofcars>int.parse(numberController.text)){
+
+                          }else{
+                            state.changeNumberOfLots(numberController.text);
+                          }
+
+                          state.buildList(AppLocalizations.of(context)!.lots_list);
                           Navigator.popUntil(context, (route) => route.isFirst);
                         }
                       },
-                      child: const Text('SAVE'),
+                      child:  Text( AppLocalizations.of(context)!.screen1n1_btn,
+                      style: const TextStyle(fontSize: 20),),
                     ),
                   ),
                 ],
