@@ -159,19 +159,13 @@ class _InitialScreenState extends State<InitialScreen> {
                     },
                     child: Row(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            AppLocalizations.of(context)!.initial_screen_btn5,
-                            style: const TextStyle(
-                              fontSize: 15,
-                            ),
+                        Text(
+                          AppLocalizations.of(context)!.initial_screen_btn5,
+                          style: const TextStyle(
+                            fontSize: 20,
                           ),
                         ),
-                        const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Icon(Icons.info_outline),
-                        ),
+                       const Icon(Icons.info_outline),
                       ],
                     ),
                   ),

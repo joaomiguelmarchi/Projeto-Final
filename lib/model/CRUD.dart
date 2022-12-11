@@ -6,26 +6,21 @@ class CRUD {
   static const String table = 'CREATE TABLE $_tablename('
       '$_id TEXT, '
       '$_owner TEXT, '
-      //'$_photo TEXT, '
       '$_initialRange DATETIME)';
 
 
   static const String _tablename = 'vaga_table';
   static const String _id = 'ID';
   static const String _owner = 'OWNER';
- // static const String _photo = 'PHOTO';
   static const String _initialRange = 'INITIAL_RANGE';
 
 
   save(Cars car) async {
-    print('Iniciando save');
     final Database bd = await getDatabase();
     var itemExists = await find(car.carId);
     if (itemExists.isEmpty) {
-      print('a tarefa não existe');
       return await bd.insert(_tablename, toMap(car));
     } else {
-      print('A tarefa já existe');
       return await bd.update(
         _tablename,
         toMap(car),
@@ -36,21 +31,16 @@ class CRUD {
   }
 
   Map<String, dynamic> toMap(Cars car) {
-    print('Convertendo pra Map');
-    final Map<String, dynamic> carMap = Map();
+    final Map<String, dynamic> carMap = {};
     carMap[_owner] = car.ownername;
     carMap[_id] = car.carId;
     carMap[_initialRange] = car.start;
-    //carMap[_photo] = car.photo;
-    print('Mapa de tarefas: $carMap');
     return carMap;
   }
 
   Future<List<Cars>> findAll() async {
-    print('Acessando Find All');
     final Database bd = await getDatabase();
     final List<Map<String, dynamic>> result = await bd.query(_tablename);
-    print('procurando dados, resultado: $result');
     return toList(result);
   }
 
@@ -61,28 +51,23 @@ class CRUD {
         ownername: row[_owner],
         carId: row[_id],
         start: row[_initialRange],
-        //photo: row[_photo],
       );
       cars.add(carro);
     }
-    print('Lista de carros $cars');
     return cars;
   }
 
   Future<List<Cars>> find(String id) async {
-    print('Acessando find: ');
     final Database bd = await getDatabase();
     final List<Map<String, dynamic>> result = await bd.query(
       _tablename,
       where: '$_id = ?',
       whereArgs: [id],
     );
-    print('Tarefa encontrada: ${toList(result)}');
     return toList(result);
   }
 
   delete(String carId) async {
-    print('deletando carro');
     final Database bd = await getDatabase();
     return bd.delete(
       _tablename,

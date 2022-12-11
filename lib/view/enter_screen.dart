@@ -100,7 +100,7 @@ class _EnterScreenState extends State<EnterScreen> {
                               width: 100,
                               child: IconButton(
                                 onPressed: () {
-                                 pegarImagemCamera();
+                                 pickImageCamera();
                                  state.image = image;
                                 },
                                 icon: const Icon(
@@ -121,7 +121,7 @@ class _EnterScreenState extends State<EnterScreen> {
                               width: 100,
                               child: IconButton(
                                 onPressed: () {
-                                  pegarImagemGaleria();
+                                  pickImageGallery();
                                   state.image = image;
                                 },
                                 icon: const Icon(
@@ -152,7 +152,7 @@ class _EnterScreenState extends State<EnterScreen> {
                                   width: 100,
                                   child: IconButton(
                                     onPressed: () {
-                                     pegarImagemCamera();
+                                     pickImageCamera();
                                      state.image = image;
                                     },
                                     icon: const Icon(
@@ -173,7 +173,7 @@ class _EnterScreenState extends State<EnterScreen> {
                                   width: 100,
                                   child: IconButton(
                                     onPressed: () {
-                                      pegarImagemGaleria();
+                                      pickImageGallery();
                                       state.image = image;
                                     },
                                     icon: const Icon(
@@ -227,22 +227,22 @@ class _EnterScreenState extends State<EnterScreen> {
         ),
       );
   }
-  pegarImagemGaleria() async {
-    final PickedFile? imagemTemporaria =
-    await imagePicker.getImage(source: ImageSource.gallery);
-    if (imagemTemporaria != null) {
+  pickImageGallery() async {
+    final XFile? temporaryimage =
+    await imagePicker.pickImage(source: ImageSource.gallery);
+    if (temporaryimage != null) {
       setState((){
-        image = File(imagemTemporaria.path);
+        image = File(temporaryimage.path);
       });
     }
   }
 
-  pegarImagemCamera() async {
-    final PickedFile? imagemTemporaria =
-    await imagePicker.getImage(source: ImageSource.camera);
-    if (imagemTemporaria != null) {
+  pickImageCamera() async {
+    final XFile? temporaryimage =
+    await imagePicker.pickImage(source: ImageSource.camera);
+    if (temporaryimage != null) {
       setState((){
-        image = File(imagemTemporaria.path);
+        image = File(temporaryimage.path);
       });
     }
   }

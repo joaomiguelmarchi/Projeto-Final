@@ -25,7 +25,7 @@ class ProviderTry extends ChangeNotifier {
   List<Cars> listacars = [];
   List<Records> listrecords = [];
   int numberofcars = 0;
-  var themevar;
+  var themevar = lightTheme;
   bool theme = true;
   File? image;
   double earn = 0;
@@ -54,9 +54,7 @@ class ProviderTry extends ChangeNotifier {
   }
 
   Future<void> setTheme(bool b) async {
-    print(theme);
     theme = b;
-    print(theme);
     final prefs = await SharedPreferences.getInstance();
     await prefs.setBool(_theme, theme);
     notifyListeners();
@@ -64,7 +62,7 @@ class ProviderTry extends ChangeNotifier {
 
   Future<void> getTheme() async {
     final prefs = await SharedPreferences.getInstance();
-    theme = await prefs.getBool(_theme) ?? true;
+    theme = prefs.getBool(_theme) ?? true;
     notifyListeners();
   }
 
@@ -91,18 +89,13 @@ class ProviderTry extends ChangeNotifier {
   }
 
   getPrice(int i) {
-    print(i);
     if (i >= -59) {
-      print('menos de uma hora');
       return 4.00;
     } else if (i >= -239 && i <= -60) {
-      print('entre uma e 4 horas');
       return 3.75;
     } else if (i >= -479 && i <= -240) {
-      print('entre 4 e 8 horas');
       return 3.50;
     } else if (i <= 480) {
-      print('mais de 8');
       return 8.00;
     }
     notifyListeners();

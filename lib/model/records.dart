@@ -91,7 +91,6 @@ class _RecordsState extends State<Records> {
                         onPressed: () {
                           setState(() {
                             price = state.getPrice(a);
-                            print(price);
                             state.getEarn(price);
                           });
                         },

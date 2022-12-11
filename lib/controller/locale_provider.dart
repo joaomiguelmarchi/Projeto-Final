@@ -6,13 +6,11 @@ class LocaleProvider extends ChangeNotifier{
   Locale get locale => _locale;
 
   void changeLocale(){
-    print(_locale);
     if(_locale==L10n.all.first){
       _locale=L10n.all.last;
     }else if (_locale == L10n.all.last){
       _locale = L10n.all.first;
     }
-    print(_locale);
     notifyListeners();
   }
 }

@@ -77,7 +77,7 @@ class _CarsScreenState extends State<CarsScreen> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 AppLocalizations.of(context)!.cars_screen_text,
                                 style: const TextStyle(

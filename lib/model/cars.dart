@@ -65,7 +65,6 @@ class _CarsState extends State<Cars> {
               onPressed: () {
                 String end1 = DateFormat('yyyy-MM-dd KK:mm:ss').format(DateTime.now());
                 CRUD().delete(widget.carId);
-                  print(DateTime.parse(widget.start));
 
                 state.addRegister(
                   widget.ownername,

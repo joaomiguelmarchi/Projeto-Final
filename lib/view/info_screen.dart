@@ -15,34 +15,61 @@ class _InfoScreenState extends State<InfoScreen> {
   Widget build(BuildContext context) {
     final state = Provider.of<ProviderTry>(context);
     return Scaffold(
-      appBar: AppBar(),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(AppLocalizations.of(context)!.initial_screen_btn5),
+      ),
+      body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            width: 400,
+            height: 100,
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(
+                width: 3,
+                color: Colors.black,
+              ),
+            ),
             child: Center(
-                child: Text(
-                  '${AppLocalizations.of(context)!.info_screen_text}: ${state.numberofcars} /'
-                  ' ${state.listoflots.length}',
-                  style: const TextStyle(
-                    fontSize: 50,
-                  ),
+              child: Text(
+                '${AppLocalizations.of(context)!.info_screen_text} ${state.numberofcars} /'
+                ' ${state.listoflots.length}',
+                style: const TextStyle(
+                  fontSize: 35,
                 ),
               ),
-          ),
-          const SizedBox(
-            width: 100,
-            height: 100,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Center(
-              child: Text('${AppLocalizations.of(context)!.info_screen_text2}${state.earn}', style: const TextStyle(fontSize:40),),
             ),
           ),
-        ],
-      ),
-      );
+        ),
+        const SizedBox(
+          width: 100,
+          height: 100,
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            width: 400,
+            height: 100,
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(
+                width: 3,
+                color: Colors.black,
+              ),
+            ),
+            child: Center(
+              child: Text(
+                '${AppLocalizations.of(context)!.info_screen_text2}${state.earn}',
+                style: const TextStyle(fontSize: 40),
+              ),
+            ),
+          ),
+        ),
+      ]),
+    );
   }
 }
