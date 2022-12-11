@@ -19,57 +19,109 @@ class _InfoScreenState extends State<InfoScreen> {
         centerTitle: true,
         title: Text(AppLocalizations.of(context)!.initial_screen_btn5),
       ),
-      body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-            width: 400,
-            height: 100,
-            decoration: BoxDecoration(
-              color: Colors.blue,
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(
-                width: 3,
-                color: Colors.black,
-              ),
-            ),
-            child: Center(
-              child: Text(
-                '${AppLocalizations.of(context)!.info_screen_text} ${state.numberofcars} /'
-                ' ${state.listoflots.length}',
-                style: const TextStyle(
-                  fontSize: 35,
+      body: (state.theme)
+          ? Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  width: 400,
+                  height: 100,
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(
+                      width: 3,
+                      color: Colors.black,
+                    ),
+                  ),
+                  child: Center(
+                    child: Text(
+                      '${AppLocalizations.of(context)!.info_screen_text} ${state.numberofcars} /'
+                      ' ${state.listoflots.length}',
+                      style: const TextStyle(
+                        fontSize: 35,
+                      ),
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ),
-        ),
-        const SizedBox(
-          width: 100,
-          height: 100,
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-            width: 400,
-            height: 100,
-            decoration: BoxDecoration(
-              color: Colors.blue,
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(
-                width: 3,
-                color: Colors.black,
+              const SizedBox(
+                width: 100,
+                height: 100,
               ),
-            ),
-            child: Center(
-              child: Text(
-                '${AppLocalizations.of(context)!.info_screen_text2}${state.earn}',
-                style: const TextStyle(fontSize: 40),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  width: 400,
+                  height: 100,
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(
+                      width: 3,
+                      color: Colors.black,
+                    ),
+                  ),
+                  child: Center(
+                    child: Text(
+                      '${AppLocalizations.of(context)!.info_screen_text2}${state.earn}',
+                      style: const TextStyle(fontSize: 40),
+                    ),
+                  ),
+                ),
               ),
-            ),
-          ),
-        ),
-      ]),
+            ])
+          : Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  width: 400,
+                  height: 100,
+                  decoration: BoxDecoration(
+                    color: Colors.teal,
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(
+                      width: 3,
+                      color: Colors.black,
+                    ),
+                  ),
+                  child: Center(
+                    child: Text(
+                      '${AppLocalizations.of(context)!.info_screen_text} ${state.numberofcars} /'
+                      ' ${state.listoflots.length}',
+                      style: const TextStyle(
+                        fontSize: 35,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                width: 100,
+                height: 100,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  width: 400,
+                  height: 100,
+                  decoration: BoxDecoration(
+                    color: Colors.teal,
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(
+                      width: 3,
+                      color: Colors.black,
+                    ),
+                  ),
+                  child: Center(
+                    child: Text(
+                      '${AppLocalizations.of(context)!.info_screen_text2}${state.earn}',
+                      style: const TextStyle(fontSize: 40),
+                    ),
+                  ),
+                ),
+              ),
+            ]),
     );
   }
 }
