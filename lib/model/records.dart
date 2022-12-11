@@ -2,26 +2,32 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
+import 'package:projeto_final/controller/provider_try.dart';
+import 'package:provider/provider.dart';
 
 class Records extends StatefulWidget {
-   const Records({
+  const Records({
     Key? key,
     required this.name,
     required this.plate,
     required this.startDate,
-     this.photography,
+    this.photography,
+    required this.endDate,
   }) : super(key: key);
-  final String name, plate, startDate;
-   final File? photography;
+  final String name, plate;
+  final DateTime startDate, endDate;
+  final File? photography;
 
   @override
   State<Records> createState() => _RecordsState();
 }
 
 class _RecordsState extends State<Records> {
+  late double price = 0;
   @override
-  final end1 = DateFormat('yyyy-MM-dd KK:mm:ss a').format(DateTime.now()).toString();
   Widget build(BuildContext context) {
+    final state = Provider.of<ProviderTry>(context);
+    final a = widget.startDate.difference(widget.endDate).inMinutes;
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
@@ -47,48 +53,59 @@ class _RecordsState extends State<Records> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                '${AppLocalizations.of(context)!.records_list_name}${widget.name}',
+                '${AppLocalizations.of(context)!.records_list_name}'
+                    '${widget.name}',
                 style: const TextStyle(fontSize: 24, color: Colors.black),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                '${AppLocalizations.of(context)!.records_list_plate}${widget.plate}',
+                '${AppLocalizations.of(context)!.records_list_plate}'
+                    '${widget.plate}',
                 style: const TextStyle(fontSize: 24, color: Colors.black),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                '${AppLocalizations.of(context)!.records_list_start}${widget.startDate}',
+                '${AppLocalizations.of(context)!.records_list_start}'
+                    '${DateFormat('yyyy-MM-dd KK:mm:ss')
+                    .format(widget.startDate)}',
                 style: const TextStyle(fontSize: 20, color: Colors.black),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                '${AppLocalizations.of(context)!.records_list_end}$end1',
+                '${AppLocalizations.of(context)!.records_list_end}'
+                    '${DateFormat('yyyy-MM-dd KK:mm:ss')
+                    .format(widget.endDate)}',
                 style: const TextStyle(fontSize: 20, color: Colors.black),
               ),
             ),
-            // Padding(
-            //   padding: const EdgeInsets.all(8.0),
-            //   child: Container(
-            //     decoration: BoxDecoration(
-            //       borderRadius: BorderRadius.circular(8),
-            //     ),
-            //     width: 150,
-            //     height: 200,
-            //     child: ClipRRect(
-            //       borderRadius: BorderRadius.circular(4),
-            //       child: Image.file(
-            //         widget.photography!,
-            //         fit: BoxFit.cover,
-            //       ),
-            //     ),
-            //   ),
-            // ),
+            (price == 0)
+                ? Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            price = state.getPrice(a);
+                            print(price);
+                            state.getEarn(price);
+                          });
+                        },
+                        child: Text(
+                            AppLocalizations.of(context)!.records_list_btn1)),
+                  )
+                : Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      '${AppLocalizations.of(context)!.records_list_text}'
+                          '${price.toStringAsFixed(2)}',
+                      style: const TextStyle(fontSize: 20),
+                    ),
+                  ),
           ],
         ),
       ),

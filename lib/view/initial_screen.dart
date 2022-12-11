@@ -52,7 +52,8 @@ class _InitialScreenState extends State<InitialScreen> {
                           state.init();
                           if (state.listoflots.isEmpty ||
                               state.numberOfLots != state.listoflots.length) {
-                            state.buildList(AppLocalizations.of(context)!.lots_list);
+                            state.buildList(
+                                AppLocalizations.of(context)!.lots_list);
                           }
                           Navigator.pushNamed(context, 'screen1');
                         },
@@ -151,15 +152,27 @@ class _InitialScreenState extends State<InitialScreen> {
                     onPressed: () {
                       if (state.listoflots.isEmpty ||
                           state.numberOfLots != state.listoflots.length) {
-                        state.buildList(AppLocalizations.of(context)!.lots_list);
+                        state.buildList(
+                            AppLocalizations.of(context)!.lots_list);
                       }
-                      Navigator.pushNamed(context, 'vagasrest');
+                      Navigator.pushNamed(context, 'infoscreen');
                     },
-                    child: Text(
-                      AppLocalizations.of(context)!.initial_screen_btn5,
-                      style: const TextStyle(
-                        fontSize: 19,
-                      ),
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            AppLocalizations.of(context)!.initial_screen_btn5,
+                            style: const TextStyle(
+                              fontSize: 15,
+                            ),
+                          ),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Icon(Icons.info_outline),
+                        ),
+                      ],
                     ),
                   ),
                 ),

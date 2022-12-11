@@ -18,7 +18,19 @@ class _RecordsScreenState extends State<RecordsScreen> {
           centerTitle: true,
           title: const Text('Registros'),
         ),
-        body: ListView(
+        body: (state.listrecords.isEmpty)
+            ?Column(
+          children: const [
+            Icon(
+              Icons.warning_amber,
+              size: 200,
+            ),
+            Text('Nenhum Registro!', style: TextStyle(
+
+            ),)
+          ],
+        )
+            :ListView(
             children: state.listrecords,
           ),
         );

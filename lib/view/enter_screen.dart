@@ -208,8 +208,7 @@ class _EnterScreenState extends State<EnterScreen> {
                             Cars(
                               ownername: nomecontroller.text,
                               carId: placacontroller.text,
-                              start: DateFormat('yyyy-MM-dd KK:mm:ss a')
-                                  .format(DateTime.now()).toString(),
+                              start: DateFormat('yyyy-MM-dd KK:mm:ss').format(DateTime.now()),
                             ),
                           );
                           Navigator.pop(context);
@@ -248,6 +247,3 @@ class _EnterScreenState extends State<EnterScreen> {
     }
   }
 }
-
-
-

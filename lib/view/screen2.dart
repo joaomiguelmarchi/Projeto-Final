@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:projeto_final/controller/locale_provider.dart';
+import 'package:projeto_final/controller/provider_try.dart';
+import 'package:projeto_final/l10n/L10n.dart';
+import 'package:provider/provider.dart';
 
 class ScreenTwo extends StatefulWidget {
   const ScreenTwo({Key? key}) : super(key: key);
@@ -11,343 +15,283 @@ class ScreenTwo extends StatefulWidget {
 class _ScreenTwoState extends State<ScreenTwo> {
   @override
   Widget build(BuildContext context) {
-    // TextEditingController numberController = TextEditingController();
-    // int _counter = int.parse(numberController.text);
+    final provider = Provider.of<LocaleProvider>(context);
+    final state = Provider.of<ProviderTry>(context);
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(AppLocalizations.of(context)!.screen2_title),
-      ),
-      body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        width: 100,
-                        height: 80,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          color: Colors.white54,
-                          border: Border.all(
-                            color: Colors.black,
-                            width: 3,
-                          ),
-                        ),
-                        child: const Center(
-                          child: Text(
-                            'Faixa',
-                            style: TextStyle(fontSize: 29, ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(
-                              width: 2,
-                            )),
-                        child: const Center(
-                          child: Text(
-                            'Faixa 0',
-                            style: TextStyle(
-                              fontSize: 25,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(
-                              width: 2,
-                            )),
-                        child: const Center(
-                          child: Text(
-                            'Faixa 1',
-                            style: TextStyle(
-                              fontSize: 25,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(
-                              width: 2,
-                            )),
-                        child: const Center(
-                          child: Text(
-                            'Faixa 2',
-                            style: TextStyle(
-                              fontSize: 25,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(
-                              width: 2,
-                              color: Colors.black,
-                            )),
-                        child: const Center(
-                          child: Text(
-                            'Faixa 3',
-                            style: TextStyle(
-                              fontSize: 25,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        width: 100,
-                        height: 80,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          color: Colors.white54,
-                          border: Border.all(
-                            width: 3,
-                          ),
-                        ),
-                        child: const Center(
-                          child: Text(
-                            'Intervalo',
-                            style: TextStyle(fontSize: 24, ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(
-                              width: 2,
-                            )),
-                        child: const Center(
-                          child: Text(
-                            'Menos de 1h',
-                            style: TextStyle(
-                              fontSize: 16,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(
-                              width: 2,
-                            )),
-                        child: const Center(
-                          child: Text(
-                            'Entre 1h e 4h',
-                            style: TextStyle(
-                              fontSize: 16,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(
-                              width: 2,
-                            )),
-                        child: const Center(
-                          child: Text(
-                            'Entre 4h e 8h',
-                            style: TextStyle(
-                              fontSize: 16,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(
-                              width: 2,
-                            )),
-                        child: const Center(
-                          child: Text(
-                            'Mais de 8h',
-                            style: TextStyle(
-                              fontSize: 19,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        width: 100,
-                        height: 80,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          color: Colors.white54,
-                          border: Border.all(
-                            color: Colors.black,
-                            width: 3,
-                          ),
-                        ),
-                        child: const Center(
-                          child: Text(
-                            'Preço',
-                            style: TextStyle(
-                              fontSize: 29,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(
-                              width: 2,
-                            )),
-                        child: const Center(
-                          child: Text(
-                            'RS 4,00',
-                            style: TextStyle(
-                              fontSize: 23,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(
-                              width: 2,
-                            )),
-                        child: const Center(
-                          child: Text(
-                            'RS 3,75',
-                            style: TextStyle(
-                              fontSize: 23,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(
-                              width: 2,
-                            )),
-                        child: const Center(
-                          child: Text(
-                            'RS 3,50',
-                            style: TextStyle(
-                              fontSize: 23,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(
-                              width: 2,
-                            )),
-                        child: const Center(
-                          child: Text(
-                            'RS 8,00',
-                            style: TextStyle(
-                              fontSize: 23,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ],
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text(AppLocalizations.of(context)!.screen2_title),
         ),
-      );
+        body: (state.theme)
+            ? (provider.locale == L10n.all.first)
+                ? Center(
+                    child: DataTable(
+                      dataTextStyle: const TextStyle(
+                          fontSize: 18,
+                          color: Colors.black,
+                          fontStyle: FontStyle.italic),
+                      dataRowHeight: 90,
+                      columnSpacing: 35,
+                      columns: [
+                        DataColumn(
+                            label: Text(
+                                AppLocalizations.of(context)!.table_column1,
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ))),
+                        DataColumn(
+                            label: Text(
+                                AppLocalizations.of(context)!.table_column2,
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ))),
+                        DataColumn(
+                            label: Text(
+                                AppLocalizations.of(context)!.table_column3,
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ))),
+                      ],
+                      rows: [
+                        DataRow(cells: [
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row1_text)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row1_text2)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row1_text3)),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row2_text)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row2_text2)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row2_text3)),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row3_text)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row3_text2)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row3_text3)),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row4_text)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row4_text2)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row4_text3)),
+                        ])
+                      ],
+                    ),
+                  )
+                : Center(
+                    child: DataTable(
+                      dataTextStyle: const TextStyle(
+                          fontSize: 20,
+                          color: Colors.black,
+                          fontStyle: FontStyle.italic),
+                      dataRowHeight: 90,
+                      columnSpacing: 35,
+                      columns: [
+                        DataColumn(
+                            label: Text(
+                                AppLocalizations.of(context)!.table_column1,
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ))),
+                        DataColumn(
+                            label: Text(
+                                AppLocalizations.of(context)!.table_column2,
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ))),
+                        DataColumn(
+                            label: Text(
+                                AppLocalizations.of(context)!.table_column3,
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ))),
+                      ],
+                      rows: [
+                        DataRow(cells: [
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row1_text)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row1_text2)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row1_text3)),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row2_text)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row2_text2)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row2_text3)),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row3_text)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row3_text2)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row3_text3)),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row4_text)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row4_text2)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row4_text3)),
+                        ])
+                      ],
+                    ),
+                  )
+            : (provider.locale == L10n.all.first)
+                ? Center(
+                    child: DataTable(
+                      dataTextStyle: const TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                          fontStyle: FontStyle.italic),
+                      dataRowHeight: 90,
+                      columnSpacing: 35,
+                      columns: [
+                        DataColumn(
+                            label: Text(
+                                AppLocalizations.of(context)!.table_column1,
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ))),
+                        DataColumn(
+                            label: Text(
+                                AppLocalizations.of(context)!.table_column2,
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ))),
+                        DataColumn(
+                            label: Text(
+                                AppLocalizations.of(context)!.table_column3,
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ))),
+                      ],
+                      rows: [
+                        DataRow(cells: [
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row1_text)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row1_text2)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row1_text3)),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row2_text)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row2_text2)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row2_text3)),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row3_text)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row3_text2)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row3_text3)),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row4_text)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row4_text2)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row4_text3)),
+                        ])
+                      ],
+                    ),
+                  )
+                : Center(
+                    child: DataTable(
+                      dataTextStyle: const TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                          fontStyle: FontStyle.italic),
+                      dataRowHeight: 90,
+                      columnSpacing: 35,
+                      columns: [
+                        DataColumn(
+                            label: Text(
+                                AppLocalizations.of(context)!.table_column1,
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ))),
+                        DataColumn(
+                            label: Text(
+                                AppLocalizations.of(context)!.table_column2,
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ))),
+                        DataColumn(
+                            label: Text(
+                                AppLocalizations.of(context)!.table_column3,
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ))),
+                      ],
+                      rows: [
+                        DataRow(cells: [
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row1_text)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row1_text2)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row1_text3)),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row2_text)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row2_text2)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row2_text3)),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row3_text)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row3_text2)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row3_text3)),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row4_text)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row4_text2)),
+                          DataCell(Text(
+                              AppLocalizations.of(context)!.table_row4_text3)),
+                        ])
+                      ],
+                    ),
+                  ));
   }
 }

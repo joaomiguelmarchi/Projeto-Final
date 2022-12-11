@@ -7,7 +7,7 @@ class CRUD {
       '$_id TEXT, '
       '$_owner TEXT, '
       //'$_photo TEXT, '
-      '$_initialRange INTEGER)';
+      '$_initialRange DATETIME)';
 
 
   static const String _tablename = 'vaga_table';

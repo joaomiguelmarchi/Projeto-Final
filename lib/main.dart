@@ -12,7 +12,7 @@ import 'package:projeto_final/view/screen1.dart';
 import 'package:projeto_final/view/screen2.dart';
 import 'package:projeto_final/view/settings_screen.dart';
 import 'package:provider/provider.dart';
-import 'package:projeto_final/view/lots_screen.dart';
+import 'package:projeto_final/view/info_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
@@ -73,7 +73,7 @@ class _MyAppState extends State<MyApp> {
         'screen2': (context) => const ScreenTwo(),
         'enterscreen': (context) => const EnterScreen(),
         'carsscreen': (context) => const CarsScreen(),
-        'vagasrest': (context) => const LotsScreen(),
+        'infoscreen': (context) => const InfoScreen(),
         'recordsscreen': (context) => const RecordsScreen(),
         'settings': (context) => const Settings(),
       },

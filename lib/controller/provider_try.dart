@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:projeto_final/l10n/L10n.dart';
 import 'package:projeto_final/model/lots.dart';
 import 'package:projeto_final/model/cars.dart';
 import 'package:projeto_final/model/records.dart';
@@ -29,6 +28,7 @@ class ProviderTry extends ChangeNotifier {
   var themevar;
   bool theme = true;
   File? image;
+  double earn = 0;
 
   ProviderTry() {
     init();
@@ -53,7 +53,7 @@ class ProviderTry extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> setTheme(bool b) async{
+  Future<void> setTheme(bool b) async {
     print(theme);
     theme = b;
     print(theme);
@@ -61,39 +61,63 @@ class ProviderTry extends ChangeNotifier {
     await prefs.setBool(_theme, theme);
     notifyListeners();
   }
-  Future<void> getTheme() async{
+
+  Future<void> getTheme() async {
     final prefs = await SharedPreferences.getInstance();
-    theme = await prefs.getBool(_theme)?? true;
+    theme = await prefs.getBool(_theme) ?? true;
     notifyListeners();
   }
 
   buildList(String a) {
     listoflots.clear();
     for (int i = 0; i < _numberOfLots; i++) {
-      listoflots.add(Lots(
-        name:  "$a ${i + 1}"
-      ));
+      listoflots.add(Lots(name: "$a ${i + 1}"));
     }
     notifyListeners();
   }
-  getl(int i){
+
+  getl(int i) {
     numberofcars = i;
   }
 
-  addRegister(String name, plate, start) {
-  listrecords.add(Records(name: name, plate: plate, startDate: start,));
+  addRegister(String name, plate, DateTime start, end) {
+    listrecords.add(Records(
+      name: name,
+      plate: plate,
+      startDate: start,
+      endDate: end,
+    ));
     notifyListeners();
   }
 
+  getPrice(int i) {
+    print(i);
+    if (i >= -59) {
+      print('menos de uma hora');
+      return 4.00;
+    } else if (i >= -239 && i <= -60) {
+      print('entre uma e 4 horas');
+      return 3.75;
+    } else if (i >= -479 && i <= -240) {
+      print('entre 4 e 8 horas');
+      return 3.50;
+    } else if (i <= 480) {
+      print('mais de 8');
+      return 8.00;
+    }
+    notifyListeners();
+  }
+  getEarn(double d){
+    earn = earn + d;
+    notifyListeners();
+  }
 
-  changeTheme(){
-    if (theme==true){
+  changeTheme() {
+    if (theme == true) {
       themevar = lightTheme;
-    }else{
-      themevar= darkTheme;
+    } else {
+      themevar = darkTheme;
     }
     return themevar;
   }
-
-
 }

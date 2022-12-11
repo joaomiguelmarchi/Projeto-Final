@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:projeto_final/controller/provider_try.dart';
 import 'package:projeto_final/model/CRUD.dart';
 import 'package:provider/provider.dart';
@@ -8,13 +9,11 @@ class Cars extends StatefulWidget {
   const Cars({
     required this.ownername,
     required this.carId,
-    //this.photo,
     required this.start,
     Key? key,
   }) : super(key: key);
   final String ownername, carId, start;
 
-  //String? photo;
 
   @override
   State<Cars> createState() => _CarsState();
@@ -39,20 +38,6 @@ class _CarsState extends State<Cars> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            // Container(
-            //   decoration: BoxDecoration(
-            //     borderRadius: BorderRadius.circular(8),
-            //   ),
-            //   width: 150,
-            //   height: 200,
-            //   child: ClipRRect(
-            //     borderRadius: BorderRadius.circular(4),
-            //     child: Image.file(
-            //       photograph,
-            //       fit: BoxFit.cover,
-            //     ),
-            //   ),
-            // ),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -71,22 +56,23 @@ class _CarsState extends State<Cars> {
                 Text(
                   '${AppLocalizations.of(context)!.cars_list_start}${widget.start}',
                   style: const TextStyle(
-                    fontSize: 12,
+                    fontSize: 18,
                   ),
                 ),
               ],
             ),
             IconButton(
               onPressed: () {
+                String end1 = DateFormat('yyyy-MM-dd KK:mm:ss').format(DateTime.now());
                 CRUD().delete(widget.carId);
+                  print(DateTime.parse(widget.start));
 
                 state.addRegister(
                   widget.ownername,
                   widget.carId,
-                  widget.start,
+                  DateTime.parse(widget.start),
+                  DateTime.parse(end1),
                 );
-
-                Navigator.pop(context);
               },
               icon: const Icon(Icons.delete),
             )
